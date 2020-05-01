@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html{
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  font-family: Light, Helvetica, sans-serif;
+  line-height: 1.4;
+  background-image: url(background.jpg);
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
   color: white;
+
+}
+.redbgimg{
+  background-image: url(background.jpg);
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+.thin {
+  font-family: Goldbill;
+}
+@font-face {
+  font-family: Goldbill;
+  src: url(Goldbill-XLLight.ttf);
+}
+@font-face {
+  font-family: Code;
+  src: url(CODE\ Bold.otf);
+}
+@font-face {
+  font-family: Light;
+  src: url(ModernSans-Light.otf);
+}
+    /* Inactive tab */
+.myClass ul > li > a {
+    background-color: black;
+    color: red;
+}
+.myClass ul > li > a:hover {
+    background-color: pink;
 }
 
-.App-link {
-  color: #61dafb;
+/* Active tab */
+.myClass ul > li.active > a,
+.myClass ul > li.active > a:hover,
+.myClass ul > li.active > a:focus {
+    background-color: red;
+    color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Disabled tab */
+.myClass ul > li.disabled > a {
+    background-color: lightgray;
+    color: darkgray;
 }

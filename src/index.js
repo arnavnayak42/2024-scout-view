@@ -14,4 +14,19 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.register();
+
+
+
+/*
+ npm start
+    Starts the development server.
+
+  pwa mode 
+  
+  npm run build
+    Bundles the app into static files for production.
+
+  serve -s build 
+
+*/
