@@ -21,15 +21,7 @@ export class Teleloperated extends Component {
                         <Col><PlusMinusStat title = "Bottom Scored"/></Col>
                         <Col><PlusMinusStat title = "Outer Scored"/></Col>
                         <Col><PlusMinusStat title = "Inner Scored"/></Col>
-                    </Row>
-                    <Row>
-                        <Col><div style = {topSpace}></div></Col>
-                    </Row>
-                    <Row>
-                        <Col><PlusMinusStat title = "T-Zone Attempt"/></Col>
-                        <Col><PlusMinusStat title = "Init Line Attempt"/></Col>
-                        <Col><PlusMinusStat title = "Near Trench Attempt"/></Col>
-                        <Col><PlusMinusStat title = "Far Trench Attempt"/></Col>
+                        <Col><PlusMinusStat title = "Missed"/></Col>
                     </Row>
                     <Row>
                         <Col><div style = {topSpace}></div></Col>
@@ -38,6 +30,15 @@ export class Teleloperated extends Component {
                         <Col><PlusMinusStat title = "Cycles"/></Col>
                         <Col><BooleanStat title = "CP Rotation?"/></Col>
                         <Col><BooleanStat title = "CP Position?"/></Col>
+                    </Row>
+                    <Row>
+                        <Col><div style = {topSpace}></div></Col>
+                    </Row>
+                    <Row>
+                        <Col><PlusMinusStat title = "T-Zone Attempt"/></Col>
+                        <Col><PlusMinusStat title = "Init Line Attempt"/></Col>
+                        <Col><PlusMinusStat title = "N Trench Attempt"/></Col>
+                        <Col><PlusMinusStat title = "F Trench Attempt"/></Col>
                     </Row>
                     <Row>
                         <Col><SwitchStat title = "Defense" options={["1","2","3","4","5"]}/></Col>

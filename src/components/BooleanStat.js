@@ -3,18 +3,25 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
 export class BooleanStat extends Component {
     state = {
-        value: false
+        id: this.props.id,
+        entryName: this.props.entryName,
+        value: "none"
     }
     render() {
         return (
             <div style = {overallStyle}>
             <h6>{this.props.title}</h6>
-                <ToggleButtonGroup type = 'radio' name = "hi">
-                    <ToggleButton type = 'radio' value = "true" variant="danger" size = "lg" style = {buttonStyle}>Yes</ToggleButton>
-                    <ToggleButton type = 'radio' value = "false" variant="danger" size = "lg" style = {buttonStyle}>No</ToggleButton>
+                <ToggleButtonGroup type = 'radio' name = "hi" onChange = {this.changeHandle}>
+                    <ToggleButton type = 'radio' value = {true} variant="danger" size = "lg" style = {buttonStyle}>Yes</ToggleButton>
+                    <ToggleButton type = 'radio' value = {false} variant="danger" size = "lg" style = {buttonStyle}>No</ToggleButton>
                 </ToggleButtonGroup>
             </div>
         )
+    }
+    changeHandle = (value) =>{
+        this.setState({value:value});
+        setTimeout( () => {this.props.send(this.state)},50); // bc it sends the old state, the delay allows the state to update first. 
+        // remember to find a better way to do this code above in the future
     }
 }
 const overallStyle = {

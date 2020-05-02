@@ -8,7 +8,7 @@ html{
 body {
   font-family: Light, Helvetica, sans-serif;
   line-height: 1.4;
-  background-image: url(background.jpg);
+  background-image: url(Assets/background.jpg);
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
@@ -16,7 +16,7 @@ body {
 
 }
 .redbgimg{
-  background-image: url(background.jpg);
+  background-image: url(Assets/background.jpg);
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
@@ -26,15 +26,15 @@ body {
 }
 @font-face {
   font-family: Goldbill;
-  src: url(Goldbill-XLLight.ttf);
+  src: url(Assets/Goldbill-XLLight.ttf);
 }
 @font-face {
   font-family: Code;
-  src: url(CODE\ Bold.otf);
+  src: url(Assets/CODE\ Bold.otf);
 }
 @font-face {
   font-family: Light;
-  src: url(ModernSans-Light.otf);
+  src: url(Assets/ModernSans-Light.otf);
 }
     /* Inactive tab */
 .myClass ul > li > a {

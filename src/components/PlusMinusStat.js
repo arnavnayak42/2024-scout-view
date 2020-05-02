@@ -3,7 +3,14 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Button from 'react-bootstrap/Button'
 export class PlusMinusStat extends Component {
     state = {
-        value: 0
+        id: this.props.id,
+        entryName: this.props.entryName,
+        value: "none"
+    }
+    changeHandle = (value) =>{
+        this.setState({value:value});
+        setTimeout( () => {this.props.send(this.state)},50); // bc it sends the old state, the delay allows the state to update first. 
+        // remember to find a better way to do this code above in the future
     }
     render() {
         return (
