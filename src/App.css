@@ -63,6 +63,17 @@ body {
     color: darkgray;
 }
 
+
+a {
+  color: #ff0000;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #b30000;
+  text-decoration: underline;
+}
 .btn-primary {
   color: #fff;
   background-color: #ff0000;
