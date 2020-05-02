@@ -12,49 +12,48 @@ import Button from 'react-bootstrap/Button'
 export class Autonomous extends Component {
     state = {data:[
             {
-                entryName: "",
+                entryName: "startPos",
                 id: 0,
-                value: "None"
+                value: "C"
             },
             {
-                entryName: "",
+                entryName: "initLine",
                 id: 1,
-                value: "None"
+                value: false
             },
             {
-                entryName: "",
+                entryName: "botScoredAuto",
                 id: 2,
-                value: "None"
+                value: 0
             },
             {
-                entryName: "",
+                entryName: "outerScoredAuto",
                 id: 3,
-                value: "None"
+                value: 0
             },
             {
-                entryName: "",
+                entryName: "innerScoredAuto",
                 id: 4,
-                value: "None"
+                value: 0
             },
             {
-                entryName: "",
+                entryName: "initAttempt",
                 id: 5,
-                value: "None"
+                value: 0
             },
             {
-                entryName: "",
+                entryName: "nTrenchAttempt",
                 id: 6,
-                value: "None"
+                value: 0
             },
         ]
-    }
-    compile = () => {
-
     }
     sendData = (data) => {
         let currentState = this.state.data;
         currentState[data.id] = data;
-        this.setState({currentState})
+        this.setState({currentState},()=>{
+            this.props.send(currentState);
+        });
     }
     render() {
         return (
@@ -78,16 +77,16 @@ export class Autonomous extends Component {
                         <Col><div style = {topSpace}></div></Col>
                     </Row>
                     <Row>
-                        <Col ><PlusMinusStat title = "Bottom Scored"  send = {this.sendData} id = {2} entryName = {"botScored"}/></Col>
-                        <Col><PlusMinusStat title = "Outer Scored"  send = {this.sendData} id = {3} entryName = {"outerScored"}/></Col>
-                        <Col><PlusMinusStat title = "Inner Scored"  send = {this.sendData} id = {4} entryName = {"innerScored"}/></Col>
+                        <Col ><PlusMinusStat title = "Bottom Scored"  send = {this.sendData} id = {2} entryName = {"botScoredAuto"}/></Col>
+                        <Col><PlusMinusStat title = "Outer Scored"  send = {this.sendData} id = {3} entryName = {"outerScoredAuto"}/></Col>
+                        <Col><PlusMinusStat title = "Inner Scored"  send = {this.sendData} id = {4} entryName = {"innerScoredAuto"}/></Col>
                     </Row>
                     <Row>
                         <Col><div style = {topSpace}></div></Col>
                     </Row>
                     <Row>
-                        <Col><PlusMinusStat title = "Init Line Attempted" send = {this.sendData} id = {4} entryName = {"innerScored"}/></Col>
-                        <Col><PlusMinusStat title = "Near Trench Attempted" send = {this.sendData} id = {4} entryName = {"innerScored"}/></Col>
+                        <Col><PlusMinusStat title = "Init Line Attempted" send = {this.sendData} id = {5} entryName = {"initAttempt"}/></Col>
+                        <Col><PlusMinusStat title = "Near Trench Attempted" send = {this.sendData} id = {6} entryName = {"nTrenchAttempt"}/></Col>
                         <Col><p>Next</p><Button variant="outline-primary" style = {full} onClick = {this.props.tabSwitch}>Next</Button></Col>
                     </Row>
                 </Container>

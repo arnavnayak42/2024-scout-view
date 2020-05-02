@@ -4,13 +4,13 @@ import Button from 'react-bootstrap/Button'
 export class PlusMinusStat extends Component {
     state = {
         id: this.props.id,
-        entryName: this.props.entryName,
-        value: "none"
+        // entryName: this.props.entryName,
+        value: 0
     }
     changeHandle = (value) =>{
-        this.setState({value:value});
-        setTimeout( () => {this.props.send(this.state)},50); // bc it sends the old state, the delay allows the state to update first. 
-        // remember to find a better way to do this code above in the future
+        this.setState({value:value}, () => {
+            this.props.send(this.state);
+        });
     }
     render() {
         return (
@@ -26,10 +26,14 @@ export class PlusMinusStat extends Component {
     }
     increment = () => {
         console.log("adding");
-        this.setState({value:this.state.value+1})
+        this.setState({value:this.state.value+1}, () => {
+            this.props.send(this.state);
+        });
     }
     decrement = () => {
-        this.setState({value:this.state.value-1})
+        this.setState({value:this.state.value-1}, () => {
+            this.props.send(this.state);
+        });
     }
 }
 // weird styling issues need to be fixed soon

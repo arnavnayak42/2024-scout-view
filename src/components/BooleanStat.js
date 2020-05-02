@@ -4,7 +4,7 @@ import ToggleButton from 'react-bootstrap/ToggleButton'
 export class BooleanStat extends Component {
     state = {
         id: this.props.id,
-        entryName: this.props.entryName,
+        // entryName: this.props.entryName,
         value: "none"
     }
     render() {
@@ -19,9 +19,9 @@ export class BooleanStat extends Component {
         )
     }
     changeHandle = (value) =>{
-        this.setState({value:value});
-        setTimeout( () => {this.props.send(this.state)},50); // bc it sends the old state, the delay allows the state to update first. 
-        // remember to find a better way to do this code above in the future
+        this.setState({value:value}, () => {
+            this.props.send(this.state);
+        });
     }
 }
 const overallStyle = {
