@@ -89,6 +89,9 @@ export class Autonomous extends Component {
                         <Col><PlusMinusStat title = "Near Trench Attempted" send = {this.sendData} id = {6} entryName = {"nTrenchAttempt"}/></Col>
                         <Col><p>Next</p><Button variant="outline-primary" style = {full} onClick = {this.props.tabSwitch}>Next</Button></Col>
                     </Row>
+                    <Row>
+                        <div style = {spacer}></div>
+                    </Row>
                 </Container>
             </div>
         )
@@ -104,6 +107,11 @@ const headerStyle = {
     fontFamily: "Code",
     backgroundColor: "#ff5555",
     color: "white"
+}
+
+const spacer = {
+    marginTop: '5vh',
+    width:'100%'
 }
 const middleAllign = {
 }
