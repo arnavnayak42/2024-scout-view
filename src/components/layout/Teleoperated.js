@@ -110,6 +110,17 @@ export class Teleloperated extends Component {
             this.props.sendEndgame(endgameData);
         })
     }
+    sendInput = (data) => {
+        let currentState = this.state.data;
+        currentState[16].value = data.target.value; // hard coded for now until text fields are a component
+        this.setState({currentState},()=>{
+            let teleopData = currentState.slice(0,endgameDataStart);
+            this.props.sendTeleop(teleopData);
+            let endgameData = currentState.slice(endgameDataStart);
+            this.props.sendEndgame(endgameData);
+        })
+
+    }
     render() {
         return (
             <div>
@@ -159,13 +170,14 @@ export class Teleloperated extends Component {
                         <Col><BooleanStat title = "Parked?" send = {this.sendData} id = {15} entryName = {"parked"}/></Col>
                         <Col>
                         <p> Time Left </p>
-                        <InputGroup style = {halfWidth}>
-                            <FormControl       
-                                placeholder="Time"
-                                aria-label="Time"
-                                aria-describedby="basic-addon1"/>
+                        <InputGroup style = {halfWidth} id = {16} entryName = {"timeleft"} onChange = {this.sendInput}>
+                            <FormControl />
                         </InputGroup >
+                        <p>Please only type a number</p>
                         </Col>
+                    </Row>
+                    <Row>
+                        <Col><div style = {topSpace}></div></Col>
                     </Row>
                 </Container>
             </div>

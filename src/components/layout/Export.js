@@ -9,17 +9,9 @@ export class Export extends Component {
         return (
             <div>
                 <header><h3 style = {headerStyle}>Export</h3></header>
+                <Row style = {fs}> <div style = {topSpace}></div> </Row>
                 <Container fluid style = {middle}>
-                    <Row> 
-                        <Col>
-                        <p style = {middle}> Go to your lead scout to be scanned! 
-                        <br></br>Make sure you actually filled out the whole form
-                        <br></br>Maybe at a later stage of the app, we can show warnings here
-                        about unanswered questions or something</p>
-                        </Col>
-                    </Row>
-                    <Row style = {fs}> <div style = {topSpace}></div> </Row>
-                    <Row>   
+                    <Row>
                         <QRCode value={JSON.stringify(this.props.data)} style = {big}/>
                     </Row>
                     <Row style = {fs}> <div style = {topSpace}></div> </Row>
@@ -30,7 +22,7 @@ export class Export extends Component {
 }
 
 const topSpace = {
-    marginTop: '15vh',
+    marginTop: '25vh',
     width:'100%'
 }
 const headerStyle = {
@@ -43,6 +35,15 @@ const headerStyle = {
     backgroundColor: "#ff5555",
     color: "white"
 }
+const subHead = {
+    textAlign: 'center',
+    fontSize: "2em",
+    padding: "1em",
+    paddingBottom: '20px',
+    paddingTop: '20px',
+    fontFamily: "Code",
+    color: "white" 
+}
 const middle = {
     textAlign: 'center',
     margin: 'auto'
@@ -51,7 +52,8 @@ const big = {
     textAlign: 'center',
     width: '20%',
     height: '20%',
-    margin: 'auto'
+    margin: 'auto',
+    borderStyle: 'solid'
 
 }
 const fs = {

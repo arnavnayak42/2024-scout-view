@@ -63,12 +63,12 @@ export class Autonomous extends Component {
                     <Row>
                         <Col style = {middleAllign}>
                         <p>Scout Name</p>
-                        <InputGroup style = {halfWidth}>
-                            <FormControl       
-                                placeholder="Name"
-                                aria-label="Name"
-                                aria-describedby="basic-addon1"/>
-                        </InputGroup >
+                        <InputGroup style = {halfWidth} onChange = {this.props.updateScout} type="text">
+                            <FormControl>
+
+                            </FormControl>
+                        </InputGroup>
+                        
                         </Col>
                         <Col><SwitchStat title = "Starting Position" options={["L","C","R"]}  send = {this.sendData} id = {0} entryName = {"startPos"}/></Col>
                         <Col><BooleanStat title = "Crossed Init. Line?" send = {this.sendData} id = {1} entryName = {"initLine"}/></Col>
