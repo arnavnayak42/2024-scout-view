@@ -4,6 +4,7 @@
   padding: 0;
 }
 :root{
+  --blue: #ff0000;
   --primary: #ff0000;
 }
 html{
@@ -94,6 +95,12 @@ body {
   text-decoration: none;
   background-color: #ff0000;
 }
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #ff0000;
+}
+
 .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
   border-color: #ff5555 #ff5555 #ff5555;
 }
