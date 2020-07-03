@@ -20,7 +20,8 @@ export class Export extends Component {
             <QRCode value={JSON.stringify(this.props.data)} style={big} />
           </Row>
           <Row style={fs}>
-            <div style={topSpace}></div>
+            {" "}
+            <div style={topSpace}></div>{" "}
           </Row>
         </Container>
       </div>
@@ -57,6 +58,8 @@ const middle = {
 };
 const big = {
   textAlign: "center",
+  width: "20%",
+  height: "20%",
   margin: "auto",
   borderStyle: "solid",
 };
