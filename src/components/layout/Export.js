@@ -58,8 +58,6 @@ const middle = {
 };
 const big = {
   textAlign: "center",
-  width: "20%",
-  height: "20%",
   margin: "auto",
   borderStyle: "solid",
 };
