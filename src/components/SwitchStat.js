@@ -7,8 +7,6 @@ export class SwitchStat extends Component {
 		value: this.props.options[0],
 	};
 	render() {
-		let rend;
-
 		return (
 			<div style={overallStyle}>
 				<h6>{this.props.title}</h6>
@@ -18,7 +16,7 @@ export class SwitchStat extends Component {
 					className='thin'
 					onChange={this.changeHandle}
 				>
-					{this.props.options.map((option) => {
+					{this.props.options.map((option) => (
 						<ToggleButton
 							type='radio'
 							value={option}
@@ -27,8 +25,8 @@ export class SwitchStat extends Component {
 							style={buttonStyle}
 						>
 							{option}
-						</ToggleButton>;
-					})}
+						</ToggleButton>
+					))}
 				</ToggleButtonGroup>
 			</div>
 		);

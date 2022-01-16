@@ -70,7 +70,7 @@ export class Autonomous extends Component {
 						<Col>
 							<SwitchStat
 								title='Starting Position'
-								options={['D', 'P', 'Lol']}
+								options={['D', 'P']}
 								send={this.sendData}
 								id={0}
 								entryName={'startPos'}
