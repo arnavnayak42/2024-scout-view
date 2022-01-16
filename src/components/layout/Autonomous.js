@@ -78,10 +78,10 @@ export class Autonomous extends Component {
 						</Col>
 						<Col>
 							<BooleanStat
-								title='Crossed Init. Line?'
+								title='Crossed Tarmac?'
 								send={this.sendData}
 								id={1}
-								entryName={'initLine'}
+								entryName={'crossTarmac'}
 							/>
 						</Col>
 					</Row>
@@ -93,26 +93,18 @@ export class Autonomous extends Component {
 					<Row>
 						<Col>
 							<PlusMinusStat
-								title='Bottom Scored'
+								title='Lower Scored'
 								send={this.sendData}
 								id={2}
-								entryName={'botScoredAuto'}
+								entryName={'lowerScoredAuto'}
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Outer Scored'
+								title='Upper Scored'
 								send={this.sendData}
 								id={3}
-								entryName={'outerScoredAuto'}
-							/>
-						</Col>
-						<Col>
-							<PlusMinusStat
-								title='Inner Scored'
-								send={this.sendData}
-								id={4}
-								entryName={'innerScoredAuto'}
+								entryName={'upperScoredAuto'}
 							/>
 						</Col>
 					</Row>
@@ -124,22 +116,29 @@ export class Autonomous extends Component {
 					<Row>
 						<Col>
 							<PlusMinusStat
-								title='Init Line Attempted'
+								title='Inside Tarmac'
 								send={this.sendData}
 								id={5}
-								entryName={'initAttempt'}
+								entryName={'insideTarmac'}
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Near Trench Attempted'
+								title='Outside Tarmac'
 								send={this.sendData}
 								id={6}
-								entryName={'nTrenchAttempt'}
+								entryName={'outsideTarmac'}
 							/>
 						</Col>
 						<Col>
-							<p>Next</p>
+							<PlusMinusStat
+								title='Fender'
+								send={this.sendData}
+								id={7}
+								entryName={'fender'}
+							/>
+						</Col>
+						<Col>
 							<Button
 								variant='outline-primary'
 								style={full}
@@ -174,9 +173,9 @@ const spacer = {
 };
 const middleAllign = {};
 const full = {
-	width: '50%',
-	height: '50%',
-	margin: 'auto',
+	marginTop: '10%',
+	width: '60%',
+	height: '60%',
 };
 const topSpace = {
 	marginTop: '5vh',
