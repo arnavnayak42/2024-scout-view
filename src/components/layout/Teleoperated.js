@@ -115,34 +115,34 @@ export class Teleloperated extends Component {
           <Row>
             <Col>
               <PlusMinusStat
-                title="Bottom Scored"
+                title="Upper Scored"
                 send={this.sendData}
                 id={0}
-                entryName={"botScoredTeleop"}
+                entryName={"upperScoredTeleop"}
               />
             </Col>
             <Col>
               <PlusMinusStat
-                title="Outer Scored"
+                title="Upper Missed"
                 send={this.sendData}
                 id={1}
-                entryName={"outScoredTeleop"}
+                entryName={"upperMissedTeleop"}
               />
             </Col>
             <Col>
               <PlusMinusStat
-                title="Inner Scored"
+                title="Bottom Scored"
                 send={this.sendData}
                 id={2}
-                entryName={"innerScoredTeleop"}
+                entryName={"bottomScoredTeleop"}
               />
             </Col>
             <Col>
               <PlusMinusStat
-                title="Missed"
+                title="Bottom Missed"
                 send={this.sendData}
                 id={3}
-                entryName={"missed"}
+                entryName={"bottomMissedTeleop"}
               />
             </Col>
           </Row>
@@ -162,58 +162,32 @@ export class Teleloperated extends Component {
             </Col>
             <Col>
               <BooleanStat
-                title="CP Rotation?"
+                title="Fender?"
                 send={this.sendData}
                 id={5}
-                entryName={"cpRot"}
+                entryName={"fender"}
               />
             </Col>
             <Col>
               <BooleanStat
-                title="CP Position?"
+                title="Tarmac?"
                 send={this.sendData}
                 id={6}
-                entryName={"cpPos"}
+                entryName={"tarmac"}
+              />
+            </Col>
+            <Col>
+              <BooleanStat
+                title="Launch Pad?"
+                send={this.sendData}
+                id={6}
+                entryName={"launchPad"}
               />
             </Col>
           </Row>
           <Row>
             <Col>
               <div style={topSpace}></div>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <PlusMinusStat
-                title="T-Zone Attempt"
-                send={this.sendData}
-                id={7}
-                entryName={"tzoneAttempt"}
-              />
-            </Col>
-            <Col>
-              <PlusMinusStat
-                title="Init Line Attempt"
-                send={this.sendData}
-                id={8}
-                entryName={"initAttempt"}
-              />
-            </Col>
-            <Col>
-              <PlusMinusStat
-                title="N Trench Attempt"
-                send={this.sendData}
-                id={9}
-                entryName={"nTrenchAttempt"}
-              />
-            </Col>
-            <Col>
-              <PlusMinusStat
-                title="F Trench Attempt"
-                send={this.sendData}
-                id={10}
-                entryName={"fTrenchAttempt"}
-              />
             </Col>
           </Row>
           <Row>
@@ -243,21 +217,17 @@ export class Teleloperated extends Component {
                 entryName={"climbed"}
               />
             </Col>
-            <Col>
-              <BooleanStat
-                title="Leveled?"
-                send={this.sendData}
-                id={13}
-                entryName={"leveled"}
-              />
-            </Col>
+          </Row>
+          <div style={topSpace}></div>
+          <div style={topSpace}></div>
+          <Row>
             <Col>
               <SwitchStat
-                title="Where did they climb?"
-                options={["L", "R", "C", "N/A"]}
+                title="Level"
+                options={["NA", "L", "M", "H", "T"]}
                 send={this.sendData}
                 id={14}
-                entryName={"climbedPos"}
+                entryName={"climbLevel"}
               />
             </Col>
           </Row>
@@ -268,15 +238,7 @@ export class Teleloperated extends Component {
           </Row>
           <Row>
             <Col>
-              <BooleanStat
-                title="Parked?"
-                send={this.sendData}
-                id={15}
-                entryName={"parked"}
-              />
-            </Col>
-            <Col>
-              <p> Time Left </p>
+              <p> Time Left - Type only a number </p>
               <InputGroup
                 style={halfWidth}
                 id={16}
@@ -285,7 +247,6 @@ export class Teleloperated extends Component {
               >
                 <FormControl />
               </InputGroup>
-              <p>Please only type a number</p>
             </Col>
           </Row>
           <Row>
