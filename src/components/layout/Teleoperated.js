@@ -201,6 +201,7 @@ export class Teleloperated extends Component {
               />
             </Col>
           </Row>
+          <div style={topSpace}></div>
         </Container>
         <div style={topSpace}></div>
         <header style={headerStyle}>
@@ -217,10 +218,6 @@ export class Teleloperated extends Component {
                 entryName={"climbed"}
               />
             </Col>
-          </Row>
-          <div style={topSpace}></div>
-          <div style={topSpace}></div>
-          <Row>
             <Col>
               <SwitchStat
                 title="Level"
@@ -231,6 +228,8 @@ export class Teleloperated extends Component {
               />
             </Col>
           </Row>
+          <div style={topSpace}></div>
+          <div style={topSpace}></div>
           <Row>
             <Col>
               <div style={topSpace}></div>
@@ -238,7 +237,7 @@ export class Teleloperated extends Component {
           </Row>
           <Row>
             <Col>
-              <p> Time Left - Type only a number </p>
+              <p> Time Left </p>
               <InputGroup
                 style={halfWidth}
                 id={16}

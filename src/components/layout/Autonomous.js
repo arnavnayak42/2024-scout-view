@@ -57,6 +57,11 @@ export class Autonomous extends Component {
 				</header>
 				<Container fluid style={center}>
 					<Row>
+						<Col>
+							<div style={topSpace}></div>
+						</Col>
+					</Row>
+					<Row>
 						<Col style={middleAllign}>
 							<p>Scout Name</p>
 							<InputGroup
@@ -84,13 +89,6 @@ export class Autonomous extends Component {
 								entryName={'crossTarmac'}
 							/>
 						</Col>
-					</Row>
-					<Row>
-						<Col>
-							<div style={topSpace}></div>
-						</Col>
-					</Row>
-					<Row>
 						<Col>
 							<PlusMinusStat
 								title='Lower Scored'
@@ -99,6 +97,13 @@ export class Autonomous extends Component {
 								entryName={'lowerScoredAuto'}
 							/>
 						</Col>
+					</Row>
+					<Row>
+						<Col>
+							<div style={topSpace}></div>
+						</Col>
+					</Row>
+					<Row>
 						<Col>
 							<PlusMinusStat
 								title='Upper Scored'
@@ -107,13 +112,6 @@ export class Autonomous extends Component {
 								entryName={'upperScoredAuto'}
 							/>
 						</Col>
-					</Row>
-					<Row>
-						<Col>
-							<div style={topSpace}></div>
-						</Col>
-					</Row>
-					<Row>
 						<Col>
 							<PlusMinusStat
 								title='Inside Tarmac'
@@ -138,6 +136,8 @@ export class Autonomous extends Component {
 								entryName={'fender'}
 							/>
 						</Col>
+					</Row>
+					<Row>
 						<Col>
 							<Button
 								variant='outline-primary'
@@ -174,8 +174,8 @@ const spacer = {
 const middleAllign = {};
 const full = {
 	marginTop: '10%',
-	width: '60%',
-	height: '60%',
+	width: '20%',
+	height: '40%',
 };
 const topSpace = {
 	marginTop: '5vh',

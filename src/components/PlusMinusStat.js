@@ -18,8 +18,8 @@ export class PlusMinusStat extends Component {
             <h6>{this.props.title}</h6>
                 <p style = {valueStyle} className = "thin">{this.state.value}</p>
                 <ButtonGroup className="mb-2 thin">
-                    <Button  variant="danger" size = "lg" style = {buttonStyle} onClick = {this.increment}>+</Button>
                     <Button variant="dark" size = "lg" style = {buttonStyle} onClick = {this.decrement}>-</Button>
+                    <Button  variant="danger" size = "lg" style = {buttonStyle} onClick = {this.increment}>+</Button>
                 </ButtonGroup>
             </div>
         )
@@ -31,9 +31,11 @@ export class PlusMinusStat extends Component {
         });
     }
     decrement = () => {
-        this.setState({value:this.state.value-1}, () => {
-            this.props.send(this.state);
-        });
+        if(this.state.value > 0){
+            this.setState({value:this.state.value-1}, () => {
+                this.props.send(this.state);
+            });
+        }
     }
 }
 // weird styling issues need to be fixed soon
