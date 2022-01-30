@@ -4,25 +4,17 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 var QRCode = require('qrcode.react');
+const cbor = require('cbor');
+const buffer = require('buffer');
+const stream = require('stream-browserify');
+
+let encoded = cbor.encode([1, 2]);
+console.log(encoded);
+
 export class Export extends Component {
 	render() {
 		let newData = [];
 		let data = this.props.data.data;
-
-		newData.push(this.props.data.matchNum);
-		newData.push(this.props.data.teamNum);
-		newData.push(this.props.data.comment);
-
-		for (let i = 0; i < data.auto.length; i++) {
-			newData.push(data.auto[i].value);
-		}
-		for (let i = 0; i < data.teleop.length; i++) {
-			newData.push(data.teleop[i].value);
-		}
-		for (let i = 0; i < data.endgame.length; i++) {
-			newData.push(data.endgame[i].value);
-		}
-
 		return (
 			<div>
 				<header>
