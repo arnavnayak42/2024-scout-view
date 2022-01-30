@@ -41,48 +41,26 @@ export class Teleloperated extends Component {
       },
       {
         id: 7,
-        value: 0,
+        value: FontFaceSetLoadEvent,
       },
       {
         id: 8,
         value: 0,
       },
+      // endgame
       {
         id: 9,
-        value: 0,
+        value: false,
       },
       {
         id: 10,
-        value: 0,
+        value: '',
       },
       {
         id: 11,
-        value: 0,
-      },
-      // endgame
-      {
-        id: 12,
-        value: false,
-      },
-      {
-        id: 13,
-        value: false,
-      },
-      {
-        id: 14,
-        value: false,
-      },
-      {
-        id: 15,
-        value: false,
-      },
-      {
-        id: 16,
-        value: 0,
+        value: 30,
       },
     ],
-
-    // tzoneAttempt initAttempt nTrenchAttempt fTrenchAttmpt defense climbed leveled climbedPos parked timeleft
   };
   sendData = (data) => {
     let currentState = this.state.data;
@@ -96,7 +74,7 @@ export class Teleloperated extends Component {
   };
   sendInput = (data) => {
     let currentState = this.state.data;
-    currentState[16].value = data.target.value; // hard coded for now until text fields are a component
+    currentState[11].value = data.target.value; // hard coded for now until text fields are a component
     this.setState({ currentState }, () => {
       let teleopData = currentState.slice(0, endgameDataStart);
       this.props.sendTeleop(teleopData);
@@ -180,7 +158,7 @@ export class Teleloperated extends Component {
               <BooleanStat
                 title="Launch Pad?"
                 send={this.sendData}
-                id={6}
+                id={7}
                 entryName={"launchPad"}
               />
             </Col>
@@ -196,7 +174,7 @@ export class Teleloperated extends Component {
                 title="Defense"
                 options={[1, 2, 3, 4, 5]}
                 send={this.sendData}
-                id={11}
+                id={8}
                 entryName={"defense"}
               />
             </Col>
@@ -214,7 +192,7 @@ export class Teleloperated extends Component {
               <BooleanStat
                 title="Climbed?"
                 send={this.sendData}
-                id={12}
+                id={9}
                 entryName={"climbed"}
               />
             </Col>
@@ -223,7 +201,7 @@ export class Teleloperated extends Component {
                 title="Level"
                 options={["NA", "L", "M", "H", "T"]}
                 send={this.sendData}
-                id={14}
+                id={10}
                 entryName={"climbLevel"}
               />
             </Col>
@@ -240,7 +218,7 @@ export class Teleloperated extends Component {
               <p> Time Left </p>
               <InputGroup
                 style={halfWidth}
-                id={16}
+                id={11}
                 entryName={"timeleft"}
                 onChange={this.sendInput}
               >
