@@ -6,6 +6,23 @@ import Button from 'react-bootstrap/Button';
 var QRCode = require('qrcode.react');
 export class Export extends Component {
 	render() {
+		let newData = [];
+		let data = this.props.data.data;
+
+		newData.push(this.props.data.matchNum);
+		newData.push(this.props.data.teamNum);
+		newData.push(this.props.data.comment);
+
+		for (let i = 0; i < data.auto.length; i++) {
+			newData.push(data.auto[i].value);
+		}
+		for (let i = 0; i < data.teleop.length; i++) {
+			newData.push(data.teleop[i].value);
+		}
+		for (let i = 0; i < data.endgame.length; i++) {
+			newData.push(data.endgame[i].value);
+		}
+
 		return (
 			<div>
 				<header>
@@ -17,7 +34,7 @@ export class Export extends Component {
 				</Row>
 				<Container fluid style={middle}>
 					<Row>
-						<QRCode value={JSON.stringify(this.props.data)} style={big} />
+						<QRCode value={JSON.stringify(newData)} style={big} />
 					</Row>
 					<Row style={fs}>
 						{' '}

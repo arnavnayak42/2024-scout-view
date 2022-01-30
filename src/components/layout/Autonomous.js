@@ -116,7 +116,7 @@ export class Autonomous extends Component {
 							<PlusMinusStat
 								title='Inside Tarmac'
 								send={this.sendData}
-								id={5}
+								id={4}
 								entryName={'insideTarmac'}
 							/>
 						</Col>
@@ -124,7 +124,7 @@ export class Autonomous extends Component {
 							<PlusMinusStat
 								title='Outside Tarmac'
 								send={this.sendData}
-								id={6}
+								id={5}
 								entryName={'outsideTarmac'}
 							/>
 						</Col>
@@ -132,7 +132,7 @@ export class Autonomous extends Component {
 							<PlusMinusStat
 								title='Fender'
 								send={this.sendData}
-								id={7}
+								id={6}
 								entryName={'fender'}
 							/>
 						</Col>
