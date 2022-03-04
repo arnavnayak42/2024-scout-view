@@ -78,10 +78,10 @@ const big = {
 	margin: 'auto',
 	borderStyle: 'solid',
 	borderWidth: '10px',
-	borderColor: 'red',
+	borderColor: 'white',
 	// width: '50vw',
-	height: window.innerHeight * 0.4,
-	width: window.innerHeight * 0.4,
+	height: window.innerHeight * 0.2,
+	width: window.innerHeight * 0.2,
 };
 const fs = {
 	height: '100%',

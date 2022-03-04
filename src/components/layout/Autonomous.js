@@ -36,10 +36,6 @@ export class Autonomous extends Component {
 				id: 5,
 				value: 0,
 			},
-			{
-				id: 6,
-				value: 0,
-			},
 		],
 	};
 	sendData = (data) => {
@@ -75,7 +71,7 @@ export class Autonomous extends Component {
 						<Col>
 							<SwitchStat
 								title='Starting Position'
-								options={['D', 'P']}
+								options={['C', 'T']}
 								send={this.sendData}
 								id={0}
 								entryName={'startPos'}
@@ -90,12 +86,13 @@ export class Autonomous extends Component {
 							/>
 						</Col>
 						<Col>
-							<PlusMinusStat
-								title='Lower Scored'
-								send={this.sendData}
-								id={2}
-								entryName={'lowerScoredAuto'}
-							/>
+							<Button
+								variant='outline-primary'
+								style={full}
+								onClick={this.props.tabSwitch}
+							>
+								Next
+							</Button>
 						</Col>
 					</Row>
 					<Row>
@@ -106,13 +103,39 @@ export class Autonomous extends Component {
 					<Row>
 						<Col>
 							<PlusMinusStat
-								title='Upper Scored'
+								title='Lower Scored'
 								send={this.sendData}
-								id={3}
-								entryName={'upperScoredAuto'}
+								id={2}
+								entryName={'lowerScoredAuto'}
+								// green={true}
 							/>
 						</Col>
 						<Col>
+							<PlusMinusStat
+								title='Lower Missed'
+								send={this.sendData}
+								id={3}
+								entryName={'lowerMissedAuto'}
+							/>
+						</Col>
+						<Col>
+							<PlusMinusStat
+								title='Upper Scored'
+								send={this.sendData}
+								id={4}
+								entryName={'upperScoredAuto'}
+								// green={true}
+							/>
+						</Col>
+						<Col>
+							<PlusMinusStat
+								title='Upper Missed'
+								send={this.sendData}
+								id={5}
+								entryName={'upperMissedAuto'}
+							/>
+						</Col>
+						{/* <Col>
 							<PlusMinusStat
 								title='Inside Tarmac'
 								send={this.sendData}
@@ -135,9 +158,9 @@ export class Autonomous extends Component {
 								id={6}
 								entryName={'fender'}
 							/>
-						</Col>
+						</Col> */}
 					</Row>
-					<Row>
+					{/* <Row>
 						<Col>
 							<Button
 								variant='outline-primary'
@@ -146,11 +169,9 @@ export class Autonomous extends Component {
 							>
 								Next
 							</Button>
-						</Col>
-					</Row>
-					<Row>
-						<div style={spacer}></div>
-					</Row>
+						</Col> */}
+					{/* </Row> */}
+					<Row>{/* <div style={spacer}></div> */}</Row>
 				</Container>
 			</div>
 		);
@@ -174,8 +195,8 @@ const spacer = {
 const middleAllign = {};
 const full = {
 	marginTop: '10%',
-	width: '20%',
-	height: '40%',
+	width: '40%',
+	height: '80%',
 };
 const topSpace = {
 	marginTop: '5vh',
