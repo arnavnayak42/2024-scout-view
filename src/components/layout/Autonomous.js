@@ -107,6 +107,7 @@ export class Autonomous extends Component {
 								send={this.sendData}
 								id={2}
 								entryName={'lowerScoredAuto'}
+								// data={this.props.data}
 								// green={true}
 							/>
 						</Col>

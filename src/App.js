@@ -131,6 +131,7 @@ class App extends Component {
 								tabSwitch={this.goToTeleop}
 								dataUpdate={this.state.dataset.setAutoData}
 								updateScout={this.updateScout}
+								data={this.dataset}
 							/>
 						</Tab>
 						<Tab title='Teleoperated' eventKey={3}>
@@ -138,6 +139,7 @@ class App extends Component {
 								sendTeleop={this.updateTeleopData}
 								sendEndgame={this.updateEndgameData}
 								tabSwitch={this.goToExport}
+								data={this.dataset}
 							/>
 						</Tab>
 						<Tab title='Export' eventKey={4}>

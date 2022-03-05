@@ -141,6 +141,7 @@ export class Teleloperated extends Component {
 							<PlusMinusStat
 								title='Fender?'
 								send={this.sendData}
+								value={this.data}
 								id={4}
 								entryName={'fender'}
 							/>
@@ -171,7 +172,7 @@ export class Teleloperated extends Component {
 						<Col>
 							<SwitchStat
 								title='Defense Quality'
-								options={['Awful', 'Ok', 'Good', 'Great']}
+								options={['NA', 'Awful', 'Ok', 'Good', 'Great']}
 								send={this.sendData}
 								id={7}
 								entryName={'defenseQuality'}
