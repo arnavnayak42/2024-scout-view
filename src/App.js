@@ -122,6 +122,7 @@ class App extends Component {
 								style={fullscreen}
 								sendTeam={this.updateTeamNum}
 								sendMatch={this.updateMatchNum}
+								goToAuto={this.goToAuto}
 							/>
 						</Tab>
 						<Tab title='Autonomous' eventKey={2}>
@@ -170,6 +171,7 @@ class App extends Component {
 								style={fullscreen}
 								sendTeam={this.updateTeamNum}
 								sendMatch={this.updateMatchNum}
+								goToAuto={this.goToAuto}
 							/>
 						</Tab>
 						<Tab title='Autonomous' eventKey={2}>
@@ -203,6 +205,11 @@ class App extends Component {
 	handleSelect = (selectedTab) => {
 		this.setState({
 			activeTab: selectedTab,
+		});
+	};
+	goToAuto = () => {
+		this.setState({
+			activeTab: 2,
 		});
 	};
 	goToTeleop = () => {

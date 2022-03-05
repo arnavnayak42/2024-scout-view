@@ -52,17 +52,21 @@ export class Teleloperated extends Component {
 				id: 8,
 				value: 0,
 			},
+			{
+				id: 9,
+				value: 0,
+			},
 			// endgame
 			// {
 			// 	id: 10,
 			// 	value: false,
 			// },
 			{
-				id: 9,
+				id: 10,
 				value: '',
 			},
 			{
-				id: 10,
+				id: 11,
 				value: 30,
 			},
 		],
@@ -162,6 +166,14 @@ export class Teleloperated extends Component {
 								entryName={'launchPad'}
 							/>
 						</Col>
+						<Col>
+							<PlusMinusStat
+								title='Outside Tarmac?'
+								send={this.sendData}
+								id={7}
+								entryName={'outsideTarmac'}
+							/>
+						</Col>
 					</Row>
 					<Row>
 						<Col>
@@ -174,7 +186,7 @@ export class Teleloperated extends Component {
 								title='Defense Quality'
 								options={['NA', 'Awful', 'Ok', 'Good', 'Great']}
 								send={this.sendData}
-								id={7}
+								id={8}
 								entryName={'defenseQuality'}
 							/>
 						</Col>
@@ -183,7 +195,7 @@ export class Teleloperated extends Component {
 								title='Defense Quantity %'
 								options={[0, 25, 50, 75, 100]}
 								send={this.sendData}
-								id={8}
+								id={9}
 								entryName={'defenseQuantity'}
 							/>
 						</Col>
@@ -210,7 +222,7 @@ export class Teleloperated extends Component {
 								title='Level'
 								options={['NA', 'Fail', 'L', 'M', 'H', 'T']}
 								send={this.sendData}
-								id={9}
+								id={10}
 								entryName={'climbLevel'}
 							/>
 						</Col>
@@ -227,7 +239,7 @@ export class Teleloperated extends Component {
 							<p> Time Left </p>
 							<InputGroup
 								style={halfWidth}
-								id={10}
+								id={11}
 								entryName={'timeleft'}
 								onChange={this.sendInput}
 							>

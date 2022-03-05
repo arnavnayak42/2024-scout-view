@@ -98,8 +98,8 @@ const big = {
 	borderWidth: '10px',
 	borderColor: 'white',
 	// width: '50vw',
-	height: window.innerHeight * 0.2,
-	width: window.innerHeight * 0.2,
+	height: window.innerHeight * 0.4,
+	width: window.innerHeight * 0.4,
 };
 const fs = {
 	height: '100%',
