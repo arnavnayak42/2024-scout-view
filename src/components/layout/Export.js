@@ -40,6 +40,18 @@ export class Export extends Component {
 						{' '}
 						<div style={topSpace}></div>{' '}
 					</Row>
+					<Row>
+						<Col>
+							<Button
+								variant='danger'
+								size='lg'
+								style={clearButton}
+								onClick={this.props.reset}
+							>
+								Clear
+							</Button>
+						</Col>
+					</Row>
 				</Container>
 			</div>
 		);
@@ -47,8 +59,14 @@ export class Export extends Component {
 }
 
 const topSpace = {
-	marginTop: '25vh',
+	marginTop: '20vh',
 	width: '100%',
+};
+const clearButton = {
+	textAlign: 'center',
+	margin: 'auto',
+	width: window.innerWidth * 0.2,
+	marginBottom: '5%',
 };
 const headerStyle = {
 	textAlign: 'center',

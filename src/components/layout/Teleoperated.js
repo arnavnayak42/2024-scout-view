@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
+import { Button } from 'react-bootstrap';
 let endgameDataStart = 9;
 export class Teleloperated extends Component {
 	state = {
@@ -136,14 +137,6 @@ export class Teleloperated extends Component {
 						</Col>
 					</Row>
 					<Row>
-						{/* <Col>
-							<PlusMinusStat
-								title='Cycles'
-								send={this.sendData}
-								id={4}
-								entryName={'cycles'}
-							/>
-						</Col> */}
 						<Col>
 							<PlusMinusStat
 								title='Fender?'
@@ -240,6 +233,15 @@ export class Teleloperated extends Component {
 								<FormControl />
 							</InputGroup>
 						</Col>
+						<Col>
+							<Button
+								variant='outline-primary'
+								style={full}
+								onClick={this.props.tabSwitch}
+							>
+								Next
+							</Button>
+						</Col>
 					</Row>
 					<Row>
 						<Col>
@@ -271,5 +273,10 @@ const halfWidth = {
 };
 const center = {
 	textAlign: 'center',
+};
+const full = {
+	marginTop: '0%',
+	width: '40%',
+	height: '80%',
 };
 export default Teleloperated;
