@@ -14,7 +14,13 @@ import SwitchStat from './components/SwitchStat';
 import Button from 'react-bootstrap/Button';
 
 export const ClearContext = React.createContext();
-
+const beforeUnloadListener = (event) => {
+	event.preventDefault();
+	return (event.returnValue = 'Are you sure you want to exit?');
+};
+window.addEventListener('beforeunload', beforeUnloadListener, {
+	capture: true,
+});
 class DataSet {
 	constructor() {
 		this.data = { auto: [], teleop: [], endgame: [] };
@@ -186,14 +192,14 @@ class App extends Component {
 					></Comment>
 
 					<Button
-						variant='danger'
+						variant='success'
 						size='lg'
 						style={clearButton}
 						onClick={this.resetLmao}
 					>
 						Clear
 					</Button>
-					<div style={space}></div>
+					{/* <div style={space}></div> */}
 				</div>
 			</ClearContext.Provider>
 		);
@@ -231,8 +237,10 @@ const space = {
 const clearButton = {
 	textAlign: 'center',
 	margin: 'auto',
-	width: window.innerWidth * 0.2,
-	marginBottom: '5%',
+	width: window.innerWidth,
+	height: window.innerHeight * 0.2,
+	// marginBottom: '5%',
+	marginTop: '20%',
 };
 const fullscreen = {
 	height: '100%',
