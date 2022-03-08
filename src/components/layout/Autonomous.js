@@ -42,6 +42,8 @@ export class Autonomous extends Component {
 		let currentState = this.state.data;
 		currentState[data.id] = data;
 		this.setState({ currentState }, () => {
+			console.log('updating data in qr code');
+			console.log(currentState);
 			this.props.send(currentState);
 		});
 	};

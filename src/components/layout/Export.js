@@ -22,6 +22,7 @@ export class Export extends Component {
 		for (let i = 0; i < data.endgame.length; i++) {
 			newData.push(data.endgame[i].value);
 		}
+		newData.push(this.props.data.scout);
 
 		return (
 			<div>
@@ -41,16 +42,7 @@ export class Export extends Component {
 						<div style={topSpace}></div>{' '}
 					</Row>
 					<Row>
-						<Col>
-							<Button
-								variant='danger'
-								size='lg'
-								style={clearButton}
-								onClick={this.props.reset}
-							>
-								Clear
-							</Button>
-						</Col>
+						<Col></Col>
 					</Row>
 				</Container>
 			</div>

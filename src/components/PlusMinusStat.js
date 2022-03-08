@@ -1,62 +1,62 @@
-import React, { Component } from 'react';
+import React, { Component, useContext, useEffect, useState } from 'react';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
-export class PlusMinusStat extends Component {
-	state = {
-		id: this.props.id,
-		// entryName: this.props.entryName,
-		value: 0,
+import { ClearContext } from '../App';
+
+export default function PlusMinusStat({ id, send, title }) {
+	const [value, setValue] = useState(0);
+	const changeHandle = (value) => {
+		setValue(value);
+		send({ id: id, value: value });
 	};
-	changeHandle = (value) => {
-		this.setState({ value: value }, () => {
-			this.props.send(this.state);
-		});
-	};
-	render() {
-		return (
-			<div style={centerStyle}>
-				<h6>{this.props.title}</h6>
-				<p
-					style={this.props.green ? greenValueStyle : valueStyle}
-					className='thin'
-				>
-					{this.state.value}
-				</p>
-				<ButtonGroup className='mb-2 thin'>
-					<Button
-						variant='dark'
-						size='lg'
-						style={buttonStyle}
-						onClick={this.decrement}
-					>
-						-
-					</Button>
-					<Button
-						variant={this.props.green ? 'success' : 'danger'}
-						size='lg'
-						style={buttonStyle}
-						onClick={this.increment}
-					>
-						+
-					</Button>
-				</ButtonGroup>
-			</div>
-		);
-	}
-	increment = () => {
+	const increment = () => {
 		console.log('adding');
-		this.setState({ value: this.state.value + 1 }, () => {
-			this.props.send(this.state);
-		});
+
+		setValue(value + 1);
+		send({ id: id, value: value + 1 });
 	};
-	decrement = () => {
-		if (this.state.value > 0) {
-			this.setState({ value: this.state.value - 1 }, () => {
-				this.props.send(this.state);
-			});
+	const decrement = () => {
+		if (value > 0) {
+			setValue(value - 1);
+			send({ id: id, value: value - 1 });
 		}
 	};
+	const clearCount = useContext(ClearContext);
+	useEffect(() => {
+		setValue(0);
+		send(0);
+		console.log('CLEARING!!!');
+		// console.log(clearCount);
+	}, [clearCount]);
+	return (
+		<div style={centerStyle}>
+			<h6>{title}</h6>
+			<p style={valueStyle} className='thin'>
+				{value}
+			</p>
+			<ButtonGroup className='mb-2 thin'>
+				<Button
+					variant='dark'
+					size='lg'
+					style={buttonStyle}
+					onClick={decrement}
+				>
+					-
+				</Button>
+				{/* {console.log('clear: ' + clearCount)} */}
+				<Button
+					variant={'danger'}
+					size='lg'
+					style={buttonStyle}
+					onClick={increment}
+				>
+					+
+				</Button>
+			</ButtonGroup>
+		</div>
+	);
 }
+
 // weird styling issues need to be fixed soon
 const centerStyle = {
 	textAlign: 'center',
@@ -89,4 +89,3 @@ const buttonStyle = {
 	width: '7vw',
 	marginTop: '0px',
 };
-export default PlusMinusStat;
