@@ -105,102 +105,84 @@ class App extends Component {
 		this.setState({ activeTab: tab, dataset: currentData });
 	};
 	render() {
-		console.log('render baby');
-		if (this.state.activeTab != 1) {
-			return (
-				// div with comment
-				<div>
-					<Tabs
-						className='myClass'
-						activeKey={this.state.activeTab}
-						onSelect={this.handleSelect}
-						style={fullscreen}
-					>
-						<Tab title='Scout View' disabled></Tab>
-						<Tab title='Get Match' eventKey={1}>
-							<GetMatch
-								style={fullscreen}
-								sendTeam={this.updateTeamNum}
-								sendMatch={this.updateMatchNum}
-								goToAuto={this.goToAuto}
-							/>
-						</Tab>
-						<Tab title='Autonomous' eventKey={2}>
-							<Autonomous
-								send={this.updateAutoData}
-								style={fullscreen}
-								tabSwitch={this.goToTeleop}
-								dataUpdate={this.state.dataset.setAutoData}
-								updateScout={this.updateScout}
-								data={this.dataset}
-							/>
-						</Tab>
-						<Tab title='Teleoperated' eventKey={3}>
-							<Teleoperated
-								sendTeleop={this.updateTeleopData}
-								sendEndgame={this.updateEndgameData}
-								tabSwitch={this.goToExport}
-								data={this.dataset}
-							/>
-						</Tab>
-						<Tab title='Export' eventKey={4}>
-							<Export
-								style={fullscreen}
-								data={this.state.dataset}
-								reset={this.resetLmao}
-							/>
-						</Tab>
-					</Tabs>
-					<Comment sendComment={this.updateComment}></Comment>
-					<div style={space}></div>
-				</div>
-			);
-		} else {
-			// div without comment
-			return (
-				<div>
-					<Tabs
-						className='myClass'
-						activeKey={this.state.activeTab}
-						onSelect={this.handleSelect}
-						style={fullscreen}
-					>
-						<Tab title='Scout View' disabled></Tab>
-						<Tab title='Get Match' eventKey={1}>
-							<GetMatch
-								style={fullscreen}
-								sendTeam={this.updateTeamNum}
-								sendMatch={this.updateMatchNum}
-								goToAuto={this.goToAuto}
-							/>
-						</Tab>
-						<Tab title='Autonomous' eventKey={2}>
-							<Autonomous
-								send={this.updateAutoData}
-								style={fullscreen}
-								tabSwitch={this.goToTeleop}
-								dataUpdate={this.state.dataset.setAutoData}
-								updateScout={this.updateScout}
-							/>
-						</Tab>
-						<Tab title='Teleoperated' eventKey={3}>
-							<Teleoperated
-								sendTeleop={this.updateTeleopData}
-								sendEndgame={this.updateEndgameData}
-								tabSwitch={this.goToExport}
-							/>
-						</Tab>
-						<Tab title='Export' eventKey={4}>
-							<Export
-								style={fullscreen}
-								data={this.state.dataset}
-								reset={this.resetLmao}
-							/>
-						</Tab>
-					</Tabs>
-				</div>
-			);
-		}
+		return (
+			// div with comment
+			<div>
+				<GetMatch
+					style={{ display: 'none' }}
+					sendTeam={this.updateTeamNum}
+					sendMatch={this.updateMatchNum}
+					goToAuto={this.goToAuto}
+				/>
+				<Autonomous
+					send={this.updateAutoData}
+					style={{ display: 'none' }}
+					tabSwitch={this.goToTeleop}
+					dataUpdate={this.state.dataset.setAutoData}
+					updateScout={this.updateScout}
+					data={this.dataset}
+				/>
+				<Teleoperated
+					sendTeleop={this.updateTeleopData}
+					sendEndgame={this.updateEndgameData}
+					tabSwitch={this.goToExport}
+					data={this.dataset}
+					style={{ display: 'none' }}
+				/>
+				<Export
+					style={fullscreen}
+					data={this.state.dataset}
+					reset={this.resetLmao}
+					style={{ display: 'none' }}
+				/>
+				{/* <Tabs
+					className='myClass'
+					activeKey={this.state.activeTab}
+					onSelect={this.handleSelect}
+					style={fullscreen}
+				>
+					<Tab title='Scout View' disabled></Tab>
+					<Tab title='Get Match' eventKey={1}>
+						<GetMatch
+							style={fullscreen}
+							sendTeam={this.updateTeamNum}
+							sendMatch={this.updateMatchNum}
+							goToAuto={this.goToAuto}
+						/>
+					</Tab>
+					<Tab title='Autonomous' eventKey={2}>
+						<Autonomous
+							send={this.updateAutoData}
+							style={fullscreen}
+							tabSwitch={this.goToTeleop}
+							dataUpdate={this.state.dataset.setAutoData}
+							updateScout={this.updateScout}
+							data={this.dataset}
+						/>
+					</Tab>
+					<Tab title='Teleoperated' eventKey={3}>
+						<Teleoperated
+							sendTeleop={this.updateTeleopData}
+							sendEndgame={this.updateEndgameData}
+							tabSwitch={this.goToExport}
+							data={this.dataset}
+						/>
+					</Tab>
+					<Tab title='Export' eventKey={4}>
+						<Export
+							style={fullscreen}
+							data={this.state.dataset}
+							reset={this.resetLmao}
+						/>
+					</Tab>
+				</Tabs> */}
+				<Comment
+					style={{ display: this.state.activeTab == 1 ? 'none' : 'none' }}
+					sendComment={this.updateComment}
+				></Comment>
+				<div style={space}></div>
+			</div>
+		);
 	}
 	handleSelect = (selectedTab) => {
 		this.setState({
