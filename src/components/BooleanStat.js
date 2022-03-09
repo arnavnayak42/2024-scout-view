@@ -1,42 +1,52 @@
 import React, { useState, useContext, useEffect } from 'react';
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
-import ToggleButton from 'react-bootstrap/ToggleButton';
+import ButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import Button from 'react-bootstrap/Button';
 import { ClearContext } from '../App';
 
 export default function BooleanStat({ id, title, send }) {
 	const [value, setValue] = useState(false);
-	const changeHandle = (value) => {
-		setValue(value);
-		send({ id: id, value: value });
-	};
+
 	const clearCount = useContext(ClearContext);
+	const changeHandle = (e) => {
+		console.log(e.currentTarget.value);
+		let val = JSON.parse(e.currentTarget.value);
+		setValue(val);
+		send({ id: id, value: val });
+	};
 	useEffect(() => {
-		setValue(false);
+		console.log('very cool clear detected');
+		setValue('lol');
 		send({ id: id, value: false });
 	}, [clearCount]);
 	return (
 		<div style={overallStyle}>
 			<h6>{title}</h6>
-			<ToggleButtonGroup type='radio' name='hi' onChange={changeHandle}>
-				<ToggleButton
-					type='radio'
-					value={true}
-					variant='danger'
-					size='lg'
-					style={buttonStyle}
-				>
-					Yes
-				</ToggleButton>
-				<ToggleButton
-					type='radio'
-					value={false}
-					variant='danger'
-					size='lg'
-					style={buttonStyle}
-				>
-					No
-				</ToggleButton>
-			</ToggleButtonGroup>
+			{/* <ButtonGroup name='hi' onChange={changeHandle}> */}
+			<Button
+				type='radio'
+				value={true}
+				variant='danger'
+				size='lg'
+				style={buttonStyle}
+				checked={false}
+				onClick={changeHandle}
+				active={value == true}
+			>
+				Yes
+			</Button>
+			<Button
+				type='radio'
+				value={false}
+				variant='danger'
+				size='lg'
+				style={buttonStyle}
+				checked={false}
+				onClick={changeHandle}
+				active={value == false}
+			>
+				No
+			</Button>
+			{/* </ButtonGroup> */}
 		</div>
 	);
 }

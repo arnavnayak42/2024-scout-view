@@ -1,40 +1,48 @@
 import React, { Component, useState, useContext, useEffect } from 'react';
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import ButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
+import Button from 'react-bootstrap/Button';
 import { ClearContext } from '../App';
 
 export default function SwitchStat({ title, send, options, id }) {
-	const [value, setValue] = useState(options[0]);
-	const changeHandle = (value) => {
-		setValue(value);
-		send({ id: id, value: value });
+	const [value, setValue] = useState('none');
+	const [unselect, setUnselect] = useState(false);
+
+	const changeHandle = (e) => {
+		let val = e.currentTarget.value;
+		setValue(val);
+		send({ id: id, value: val });
 	};
 	const clearCount = useContext(ClearContext);
 	useEffect(() => {
-		setValue(options[0]);
+		console.log('very cool clear detected');
+		setValue('none');
 		send({ id: id, value: options[0] });
 	}, [clearCount]);
 	return (
 		<div style={overallStyle}>
 			<h6>{title}</h6>
-			<ToggleButtonGroup
+			{/* <ButtonGroup
 				type='radio'
 				name={title}
 				className='thin'
 				onChange={changeHandle}
-			>
-				{options.map((option) => (
-					<ToggleButton
-						type='radio'
-						value={option}
-						variant='danger'
-						size='lg'
-						style={buttonStyle}
-					>
-						{option}
-					</ToggleButton>
-				))}
-			</ToggleButtonGroup>
+			> */}
+			{options.map((option) => (
+				<Button
+					type='radio'
+					value={option}
+					variant='danger'
+					size='lg'
+					style={buttonStyle}
+					checked={false}
+					onClick={changeHandle}
+					active={value == option}
+				>
+					{option}
+				</Button>
+			))}
+			{/* </ButtonGroup> */}
 		</div>
 	);
 }
