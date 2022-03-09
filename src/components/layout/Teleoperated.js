@@ -246,15 +246,6 @@ export class Teleloperated extends Component {
 								<FormControl />
 							</InputGroup>
 						</Col>
-						<Col>
-							<Button
-								variant='outline-primary'
-								style={full}
-								onClick={this.props.tabSwitch}
-							>
-								Next
-							</Button>
-						</Col>
 					</Row>
 					<Row>
 						<Col>

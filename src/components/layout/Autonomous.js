@@ -88,13 +88,13 @@ export class Autonomous extends Component {
 							/>
 						</Col>
 						<Col>
-							<Button
+							{/* <Button
 								variant='outline-primary'
 								style={full}
 								onClick={this.props.tabSwitch}
 							>
 								Next
-							</Button>
+							</Button> */}
 						</Col>
 					</Row>
 					<Row>

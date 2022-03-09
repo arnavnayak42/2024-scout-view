@@ -23,13 +23,13 @@ export class GetMatch extends Component {
 				<InputGroup style={size} onChange={this.props.sendMatch} type='text'>
 					<FormControl></FormControl>
 				</InputGroup>
-				<Button
+				{/* <Button
 					variant='outline-primary'
 					style={full}
 					onClick={this.props.goToAuto}
 				>
 					Next
-				</Button>
+				</Button> */}
 			</div>
 		);
 	}

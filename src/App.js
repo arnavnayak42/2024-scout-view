@@ -14,13 +14,13 @@ import SwitchStat from './components/SwitchStat';
 import Button from 'react-bootstrap/Button';
 
 export const ClearContext = React.createContext();
-const beforeUnloadListener = (event) => {
-	event.preventDefault();
-	return (event.returnValue = 'Are you sure you want to exit?');
-};
-window.addEventListener('beforeunload', beforeUnloadListener, {
-	capture: true,
-});
+// const beforeUnloadListener = (event) => {
+// 	event.preventDefault();
+// 	return (event.returnValue = 'Are you sure you want to exit?');
+// };
+// window.addEventListener('beforeunload', beforeUnloadListener, {
+// 	capture: true,
+// });
 class DataSet {
 	constructor() {
 		this.data = { auto: [], teleop: [], endgame: [] };
