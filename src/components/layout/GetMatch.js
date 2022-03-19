@@ -16,12 +16,18 @@ export class GetMatch extends Component {
 
 				<p>Team Number</p>
 				<InputGroup style={size} onChange={this.props.sendTeam} type='text'>
-					<FormControl></FormControl>
+					<FormControl
+						value={this.props.teamNum}
+						className='textField'
+					></FormControl>
 				</InputGroup>
 				<div style={topSpace}></div>
 				<p>Match Number</p>
 				<InputGroup style={size} onChange={this.props.sendMatch} type='text'>
-					<FormControl></FormControl>
+					<FormControl
+						value={this.props.matchNum}
+						className='textField'
+					></FormControl>
 				</InputGroup>
 				{/* <Button
 					variant='outline-primary'

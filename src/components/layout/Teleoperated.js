@@ -243,7 +243,7 @@ export class Teleloperated extends Component {
 								entryName={'timeleft'}
 								onChange={this.sendInput}
 							>
-								<FormControl />
+								<FormControl className='textField' />
 							</InputGroup>
 						</Col>
 					</Row>

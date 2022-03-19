@@ -17,6 +17,14 @@ export default function BooleanStat({ id, title, send }) {
 		console.log('very cool clear detected');
 		setValue('lol');
 		send({ id: id, value: false });
+		console.log((document.getElementsByClassName('textField')[0].value = ''));
+		console.log((document.getElementsByClassName('textField')[1].value = ''));
+		console.log((document.getElementsByClassName('textField')[2].value = ''));
+		console.log((document.getElementsByClassName('textField')[3].value = ''));
+		console.log((document.getElementsByClassName('textField')[4].value = ''));
+		// document.getElementsByClassName('textField').map((el) => {
+		// el.reset();
+		// });
 	}, [clearCount]);
 	return (
 		<div style={overallStyle}>

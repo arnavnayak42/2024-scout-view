@@ -164,6 +164,8 @@ class App extends Component {
 						sendTeam={this.updateTeamNum}
 						sendMatch={this.updateMatchNum}
 						goToAuto={this.goToAuto}
+						teamNum={this.teamNum}
+						matchNum={this.matchNum}
 					/>
 					<Autonomous
 						send={this.updateAutoData}

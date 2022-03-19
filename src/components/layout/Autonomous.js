@@ -67,7 +67,7 @@ export class Autonomous extends Component {
 								onChange={this.props.updateScout}
 								type='text'
 							>
-								<FormControl></FormControl>
+								<FormControl className='textField'></FormControl>
 							</InputGroup>
 						</Col>
 						<Col>
