@@ -35,6 +35,7 @@ class DataSet {
 		this.matchNum = 0;
 		this.teamNum = 0;
 		this.scout = '';
+		console.log('clearing');
 	};
 	setComment = (data) => {
 		this.comment = data;
@@ -150,9 +151,10 @@ class App extends Component {
 		let tab = this.state.activeTab;
 		this.setState({
 			activeTab: tab,
-			dataset: currentData,
+			dataset: new DataSet(),
 			clearCount: this.state.clearCount + 1,
 		});
+		console.log('clears: ' + this.state.clearCount);
 	};
 	render() {
 		return (

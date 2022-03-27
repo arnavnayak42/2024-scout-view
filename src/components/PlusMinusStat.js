@@ -24,7 +24,7 @@ export default function PlusMinusStat({ id, send, title }) {
 	const clearCount = useContext(ClearContext);
 	useEffect(() => {
 		setValue(0);
-		send(0);
+		send({ id: id, value: 0 });
 		console.log('CLEARING!!!');
 		// console.log(clearCount);
 	}, [clearCount]);
