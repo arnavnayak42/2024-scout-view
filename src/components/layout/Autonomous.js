@@ -130,7 +130,15 @@ export class Autonomous extends Component {
 								entryName={'lowerScoredAuto'}//change this
 							/>
 						</Col>
+						
+						</Row>
+						<Row>
 						<Col>
+							<div style={topSpace}></div>
+						</Col>
+					</Row>
+					<Row>
+					<Col>
 							<PlusMinusStat
 								title='Cubes High'
 								send={this.sendData}
@@ -154,7 +162,7 @@ export class Autonomous extends Component {
 								entryName={'lowerScoredAuto'}//change this
 							/>
 						</Col>
-						</Row>
+					</Row>
 					<Row>
 						<Col>
 							<div style={topSpace}></div>
