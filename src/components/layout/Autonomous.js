@@ -62,6 +62,16 @@ export class Autonomous extends Component {
 						</Col>
 					</Row>
 					<Row>
+						<Col>
+						<img src="layout/key-for-starting-pos.png" alt="Field diagram" />{/*fix this john */}
+						</Col>
+						</Row>
+						<Row>
+						<Col>
+							<div style={topSpace}></div>
+						</Col>
+					</Row>
+					<Row>
 						<Col style={middleAllign}>
 							<p>Scout Name</p>
 							<InputGroup
@@ -75,7 +85,7 @@ export class Autonomous extends Component {
 						<Col>
 							<SwitchStat
 								title='Starting Position'
-								options={['D', 'P']}
+								options={['1', '2', '3', '4']}
 								send={this.sendData}
 								id={0}
 								entryName={'startPos'}
@@ -83,18 +93,10 @@ export class Autonomous extends Component {
 						</Col>
 						<Col>
 							<BooleanStat
-								title='Crossed Tarmac?'
+								title='Left Community?'
 								send={this.sendData}
 								id={1}
-								entryName={'crossTarmac'}
-							/>
-						</Col>
-						<Col>
-							<PlusMinusStat
-								title='Lower Scored'
-								send={this.sendData}
-								id={2}
-								entryName={'lowerScoredAuto'}
+								entryName={'crossTarmac'}//change this to leftTarmac
 							/>
 						</Col>
 					</Row>
@@ -104,38 +106,79 @@ export class Autonomous extends Component {
 						</Col>
 					</Row>
 					<Row>
-						<Col>
+					<Col>
 							<PlusMinusStat
-								title='Upper Scored'
+								title='Cones High'
 								send={this.sendData}
-								id={3}
-								entryName={'upperScoredAuto'}
+								id={2}
+								entryName={'lowerScoredAuto'}//change this
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Inside Tarmac'
+								title='Cones Mid'
 								send={this.sendData}
-								id={4}
-								entryName={'insideTarmac'}
+								id={2}
+								entryName={'lowerScoredAuto'}//change this
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Outside Tarmac'
+								title='Cones Low'
 								send={this.sendData}
-								id={5}
-								entryName={'outsideTarmac'}
+								id={2}
+								entryName={'lowerScoredAuto'}//change this
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Fender'
+								title='Cubes High'
 								send={this.sendData}
-								id={6}
-								entryName={'fender'}
+								id={2}
+								entryName={'lowerScoredAuto'}//change this
 							/>
 						</Col>
+						<Col>
+							<PlusMinusStat
+								title='Cubes Mid'
+								send={this.sendData}
+								id={2}
+								entryName={'lowerScoredAuto'}//change this
+							/>
+						</Col>
+						<Col>
+							<PlusMinusStat
+								title='Cubes Low'
+								send={this.sendData}
+								id={2}
+								entryName={'lowerScoredAuto'}//change this
+							/>
+						</Col>
+						</Row>
+					<Row>
+						<Col>
+							<div style={topSpace}></div>
+						</Col>
+					</Row>
+					<Row>
+					<Col>
+							<SwitchStat
+								title='Charging Station'
+								options={["Docked", "Engaged", "None"]}
+								send={this.sendData}
+								id={0}
+								entryName={'startPos'}//change this 
+							/>
+						</Col>
+					</Row>
+					<Row>
+						<div style={spacer}></div>
+					</Row>
+					<Row>
+						<div style={spacer}></div>
+					</Row>
+					<Row>
+						<div style={spacer}></div>
 					</Row>
 					<Row>
 						<Col>
@@ -151,6 +194,7 @@ export class Autonomous extends Component {
 					<Row>
 						<div style={spacer}></div>
 					</Row>
+					
 				</Container>
 			</div>
 		);

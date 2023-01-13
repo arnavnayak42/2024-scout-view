@@ -86,7 +86,7 @@ export class Teleloperated extends Component {
     return (
       <div>
         <header>
-          <h3 style={headerStyle}>Teleloperated</h3>
+          <h3 style={headerStyle}>Teleoperated</h3>
         </header>
         <div style={topSpace}></div>
         <Container fluid style={center}>
