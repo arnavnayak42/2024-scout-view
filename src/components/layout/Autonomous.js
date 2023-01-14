@@ -71,7 +71,7 @@ export class Autonomous extends Component {
 					</Row>
 					<Row>
 						<Col>
-						<img src="Assets/key-for-starting-pos.png" alt="Field diagram" />{/*fix this john */}
+						<img src={require("../../Assets/key-for-starting-pos.png")} alt="Field diagram" />{/**this may not work globally? */}
 						</Col>
 						</Row>
 						<Row>
@@ -188,13 +188,7 @@ export class Autonomous extends Component {
 						</Col>
 					</Row>
 					<Row>
-						<div style={spacer}></div>
-					</Row>
-					<Row>
-						<div style={spacer}></div>
-					</Row>
-					<Row>
-						<div style={spacer}></div>
+						<div style={specialspacer}></div>
 					</Row>
 					<Row>
 						<Col>
@@ -229,6 +223,10 @@ const headerStyle = {
 
 const spacer = {
 	marginTop: '5vh',
+	width: '100%',
+};
+const specialspacer = {
+	marginTop: '0.3vh',
 	width: '100%',
 };
 const middleAllign = {};

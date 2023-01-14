@@ -129,4 +129,12 @@ a:hover {
   color: #ffffff;
   background-color: #ffaeae;
   border-color: #ff5555 #ff5555 #ff5555;
+}/*
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}*/
+.comment{
+  text-align: center;margin: auto;width: 80%;padding: 30px;margin-top: 500px;
 }
