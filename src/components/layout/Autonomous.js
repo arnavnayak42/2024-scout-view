@@ -13,33 +13,41 @@ export class Autonomous extends Component {
 	state = {
 		data: [
 			{
-				id: 0,
-				value: 'C',
+				id: 0,//starting position
+				value: '0',
 			},
 			{
-				id: 1,
+				id: 1,//left community 
 				value: false,
 			},
 			{
-				id: 2,
+				id: 2,//cones high
 				value: 0,
 			},
 			{
-				id: 3,
+				id: 3,//cones mid
 				value: 0,
 			},
 			{
-				id: 4,
+				id: 4, //cones low
 				value: 0,
 			},
 			{
-				id: 5,
+				id: 5,//cubes high
 				value: 0,
 			},
 			{
-				id: 6,
+				id: 6, //cubes mid
 				value: 0,
 			},
+			{
+				id: 7, //cubes low 
+				value:0,
+			},
+			{
+				id: 8, //charging station
+				value: "No Input",
+			}
 		],
 	};
 	sendData = (data) => {
@@ -63,7 +71,7 @@ export class Autonomous extends Component {
 					</Row>
 					<Row>
 						<Col>
-						<img src="layout/key-for-starting-pos.png" alt="Field diagram" />{/*fix this john */}
+						<img src="Assets/key-for-starting-pos.png" alt="Field diagram" />{/*fix this john */}
 						</Col>
 						</Row>
 						<Row>
@@ -96,7 +104,7 @@ export class Autonomous extends Component {
 								title='Left Community?'
 								send={this.sendData}
 								id={1}
-								entryName={'crossTarmac'}//change this to leftTarmac
+								entryName={'leftCommunity'}//change this to leftTarmac //was crossTarmac
 							/>
 						</Col>
 					</Row>
@@ -111,7 +119,7 @@ export class Autonomous extends Component {
 								title='Cones High'
 								send={this.sendData}
 								id={2}
-								entryName={'lowerScoredAuto'}//change this
+								entryName={'conesHighAuto'}//was lowerScoredAuto
 							/>
 						</Col>
 						<Col>
@@ -119,7 +127,7 @@ export class Autonomous extends Component {
 								title='Cones Mid'
 								send={this.sendData}
 								id={2}
-								entryName={'lowerScoredAuto'}//change this
+								entryName={'conesMidAuto'}//was 
 							/>
 						</Col>
 						<Col>
@@ -127,7 +135,7 @@ export class Autonomous extends Component {
 								title='Cones Low'
 								send={this.sendData}
 								id={2}
-								entryName={'lowerScoredAuto'}//change this
+								entryName={'conesLowAuto'}
 							/>
 						</Col>
 						
@@ -143,7 +151,7 @@ export class Autonomous extends Component {
 								title='Cubes High'
 								send={this.sendData}
 								id={2}
-								entryName={'lowerScoredAuto'}//change this
+								entryName={'cubesHighAuto'}
 							/>
 						</Col>
 						<Col>
@@ -151,7 +159,7 @@ export class Autonomous extends Component {
 								title='Cubes Mid'
 								send={this.sendData}
 								id={2}
-								entryName={'lowerScoredAuto'}//change this
+								entryName={'cubesMidAuto'}
 							/>
 						</Col>
 						<Col>
@@ -159,7 +167,7 @@ export class Autonomous extends Component {
 								title='Cubes Low'
 								send={this.sendData}
 								id={2}
-								entryName={'lowerScoredAuto'}//change this
+								entryName={'cubesLowAuto'}
 							/>
 						</Col>
 					</Row>
@@ -175,7 +183,7 @@ export class Autonomous extends Component {
 								options={["Docked", "Engaged", "None"]}
 								send={this.sendData}
 								id={0}
-								entryName={'startPos'}//change this 
+								entryName={'No Input CS'}//CS = Charging Station
 							/>
 						</Col>
 					</Row>
