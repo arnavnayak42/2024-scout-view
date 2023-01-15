@@ -219,7 +219,7 @@ export class Teleloperated extends Component {
 								options={["Docked", "Engaged", "None"]}
 								send={this.sendData}
 								id={11}
-								entryName={'NoInputCSTeleop'}//CS = Charging Station
+								entryName={'CSTeleop'}//CS = Charging Station
 							/>
 						</Col>
           </Row>
@@ -231,7 +231,7 @@ export class Teleloperated extends Component {
           <Row>
             <Col>
             <SwitchStat
-                title="Climb Efficiency"
+                title="Climb Efficiency/Stability"
                 options={["0","1","2", "3", "4", "5"]}
                 send={this.sendData}
                 id={12}
