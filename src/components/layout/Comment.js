@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
+import App from '../../App.js'
 export class Comment extends Component {//style={size}
     render() {
+        console.log("trying to render comment")/**
+        if(getTab == 2){//this doesn't work because App object isn't created 
+            console.log("we're in teleop");*/
         return (
             <><div style={topMargin}/>
             <div className="comment">
@@ -11,16 +15,29 @@ export class Comment extends Component {//style={size}
                     <FormControl />
                 </InputGroup>
             </div></>
-        )
+        )/** 
+        }
+        else{
+            return (
+                <><div style={topMargin}/>
+                <div style={size}>
+                    <p>Comment</p>
+                    <InputGroup onChange={this.props.sendComment} type="text">
+                        <FormControl />
+                    </InputGroup>
+                </div></>
+            )
+        }
+        */
     }
 }
 /** "text-align: center;margin: auto;width: 80%;padding: 30px;margin-top: 500px;"*/
-/**const size = {
+const size = {
     textAlign: "center",
     margin: "auto",
     width: "80%",
     padding: 30, 
-}*/
+}
 const topMargin = {
     topMargin: "10%",
 }

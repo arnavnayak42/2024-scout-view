@@ -130,6 +130,9 @@ class App extends Component{
       activeTab: 3
     }); 
   }
+  getTab = () => {
+    return this.state.activeTab;
+  }
 }
 const space = {
   marginTop: '15vh',

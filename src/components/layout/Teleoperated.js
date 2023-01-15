@@ -90,85 +90,94 @@ export class Teleloperated extends Component {
         </header>
         <div style={topSpace}></div>
         <Container fluid style={center}>
+        <Row>
+					<Col>
+							<PlusMinusStat
+								title='Cones High'
+								send={this.sendData}
+								id={2}
+								entryName={'conesHighAuto'}//was lowerScoredAuto
+							/>
+						</Col>
+						<Col>
+							<PlusMinusStat
+								title='Cones Mid'
+								send={this.sendData}
+								id={2}
+								entryName={'conesMidAuto'}//was 
+							/>
+						</Col>
+						<Col>
+							<PlusMinusStat
+								title='Cones Low'
+								send={this.sendData}
+								id={2}
+								entryName={'conesLowAuto'}
+							/>
+						</Col>
+						<Col>
+							<PlusMinusStat
+								title='Cones Missed'
+								send={this.sendData}
+								id={2}
+								entryName={'cubesLowAuto'}
+							/>
+						</Col>
+						</Row>
+						<Row>
+						<Col>
+							<div style={topSpace}></div>
+						</Col>
+					</Row>
+					<Row>
+					<Col>
+							<PlusMinusStat
+								title='Cubes High'
+								send={this.sendData}
+								id={2}
+								entryName={'cubesHighAuto'}
+							/>
+						</Col>
+						<Col>
+							<PlusMinusStat
+								title='Cubes Mid'
+								send={this.sendData}
+								id={2}
+								entryName={'cubesMidAuto'}
+							/>
+						</Col>
+						<Col>
+							<PlusMinusStat
+								title='Cubes Low'
+								send={this.sendData}
+								id={2}
+								entryName={'cubesLowAuto'}
+							/>
+						</Col>
+            <Col>
+							<PlusMinusStat
+								title='Cubes Missed'
+								send={this.sendData}
+								id={2}
+								entryName={'cubesLowAuto'}
+							/>
+						</Col>
+					</Row>
+					<Row>
+						<Col>
+							<div style={topSpace}></div>
+						</Col>
+					</Row>
           <Row>
-            <Col>
-              <PlusMinusStat
-                title="Upper Scored"
-                send={this.sendData}
-                id={0}
-                entryName={"upperScoredTeleop"}
-              />
-            </Col>
-            <Col>
-              <PlusMinusStat
-                title="Upper Missed"
-                send={this.sendData}
-                id={1}
-                entryName={"upperMissedTeleop"}
-              />
-            </Col>
-            <Col>
-              <PlusMinusStat
-                title="Bottom Scored"
-                send={this.sendData}
-                id={2}
-                entryName={"bottomScoredTeleop"}
-              />
-            </Col>
-            <Col>
-              <PlusMinusStat
-                title="Bottom Missed"
-                send={this.sendData}
-                id={3}
-                entryName={"bottomMissedTeleop"}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <div style={topSpace}></div>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <PlusMinusStat
-                title="Cycles"
-                send={this.sendData}
-                id={4}
-                entryName={"cycles"}
-              />
-            </Col>
-            <Col>
-              <BooleanStat
-                title="Fender?"
-                send={this.sendData}
-                id={5}
-                entryName={"fender"}
-              />
-            </Col>
-            <Col>
-              <BooleanStat
-                title="Tarmac?"
-                send={this.sendData}
-                id={6}
-                entryName={"tarmac"}
-              />
-            </Col>
-            <Col>
-              <BooleanStat
-                title="Launch Pad?"
-                send={this.sendData}
-                id={7}
-                entryName={"launchPad"}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <div style={topSpace}></div>
-            </Col>
-          </Row>
-          <Row>
+          <Col>
+							<SwitchStat
+								title='Intake From'
+								options={["Floor", "Shelf"]}
+								send={this.sendData}
+								id={0}
+								entryName={'No Input CS'}//CS = Charging Station
+							/>
+						</Col>
             <Col>
               <SwitchStat
                 title="Defense"
@@ -190,23 +199,39 @@ export class Teleloperated extends Component {
           <Row>
             <Col>
               <BooleanStat
-                title="Climbed?"
+                title="Attempted Charge Station?"
                 send={this.sendData}
                 id={9}
                 entryName={"climbed"}
               />
             </Col>
             <Col>
-              <SwitchStat
-                title="Level"
-                options={["NA", "L", "M", "H", "T"]}
+							<SwitchStat
+								title='Charging Station'
+								options={["Docked", "Engaged", "None"]}
+								send={this.sendData}
+								id={0}
+								entryName={'No Input CS'}//CS = Charging Station
+							/>
+						</Col>
+          </Row>
+          <Row>
+						<Col>
+							<div style={topSpace}></div>
+						</Col>
+					</Row>
+          <Row>
+            <Col>
+            <SwitchStat
+                title="Climb Efficiency"
+                options={["0","1","2", "3", "4", "5"]}
                 send={this.sendData}
                 id={10}
                 entryName={"climbLevel"}
               />
             </Col>
           </Row>
-          <div style={topSpace}></div>
+          <div style={topSpace}></div>  
           <div style={topSpace}></div>
           <Row>
             <Col>
