@@ -33,20 +33,28 @@ export class Autonomous extends Component {
 				value: 0,
 			},
 			{
-				id: 5,//cubes high
+				id: 5, //cones missed
 				value: 0,
 			},
 			{
-				id: 6, //cubes mid
+				id: 6,//cubes high
 				value: 0,
 			},
 			{
-				id: 7, //cubes low 
-				value:0,
+				id: 7, //cubes mid
+				value: 0,
 			},
 			{
-				id: 8, //charging station
-				value: "No Input",
+				id: 8, //cubes low 
+				value: 0,
+			},
+			{
+				id: 9,//cones missed
+				value: 0
+			},
+			{
+				id: 10, //charging station
+				value: "NoInputCSAuto",
 			}
 		],
 	};
@@ -71,7 +79,7 @@ export class Autonomous extends Component {
 					</Row>
 					<Row>
 						<Col>
-						<img src={require("../../Assets/key-for-starting-pos.png")} alt="Field diagram" />{/**this may not work globally? */}
+						<img src={require("../../Assets/key-for-starting-pos.png")} alt="Field diagram" />{/**this may not work globally? +convert this to webp*/}
 						</Col>
 						</Row>
 						<Row>
@@ -126,7 +134,7 @@ export class Autonomous extends Component {
 							<PlusMinusStat
 								title='Cones Mid'
 								send={this.sendData}
-								id={2}
+								id={3}
 								entryName={'conesMidAuto'}//was 
 							/>
 						</Col>
@@ -134,11 +142,18 @@ export class Autonomous extends Component {
 							<PlusMinusStat
 								title='Cones Low'
 								send={this.sendData}
-								id={2}
+								id={4}
 								entryName={'conesLowAuto'}
 							/>
 						</Col>
-						
+						<Col>
+							<PlusMinusStat
+								title='Cones Missed'
+								send={this.sendData}
+								id={5}
+								entryName={'conesMissedAuto'}
+							/>
+						</Col>
 						</Row>
 						<Row>
 						<Col>
@@ -150,7 +165,7 @@ export class Autonomous extends Component {
 							<PlusMinusStat
 								title='Cubes High'
 								send={this.sendData}
-								id={2}
+								id={6}
 								entryName={'cubesHighAuto'}
 							/>
 						</Col>
@@ -158,7 +173,7 @@ export class Autonomous extends Component {
 							<PlusMinusStat
 								title='Cubes Mid'
 								send={this.sendData}
-								id={2}
+								id={7}
 								entryName={'cubesMidAuto'}
 							/>
 						</Col>
@@ -166,8 +181,16 @@ export class Autonomous extends Component {
 							<PlusMinusStat
 								title='Cubes Low'
 								send={this.sendData}
-								id={2}
+								id={8}
 								entryName={'cubesLowAuto'}
+							/>
+						</Col>
+						<Col>
+							<PlusMinusStat
+								title='Cubes Missed'
+								send={this.sendData}
+								id={9}
+								entryName={'cubesMissedAuto'}
 							/>
 						</Col>
 					</Row>
@@ -182,8 +205,8 @@ export class Autonomous extends Component {
 								title='Charging Station'
 								options={["Docked", "Engaged", "None"]}
 								send={this.sendData}
-								id={0}
-								entryName={'No Input CS'}//CS = Charging Station
+								id={10}
+								entryName={'CSAuto'}//CS = Charging Station
 							/>
 						</Col>
 					</Row>

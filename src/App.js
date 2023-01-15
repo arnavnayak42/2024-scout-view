@@ -102,7 +102,7 @@ class App extends Component{
               <Tab title="Teleoperated"  eventKey={3}><Teleoperated sendTeleop = {this.updateTeleopData} sendEndgame = {this.updateEndgameData}/></Tab>
               <Tab title="Export"  eventKey={4}><Export style = {fullscreen} data = {this.state.dataset}/></Tab>
           </Tabs>
-          <Comment sendComment = {this.updateComment}></Comment>
+          <Comment sendComment = {this.updateComment} curTab = {this.state.activeTab}></Comment>
           <div style = {space}></div>
           </div>
       );
@@ -130,7 +130,7 @@ class App extends Component{
       activeTab: 3
     }); 
   }
-  getTab = () => {
+  static getTab = () => {
     return this.state.activeTab;
   }
 }

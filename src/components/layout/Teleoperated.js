@@ -12,54 +12,62 @@ export class Teleloperated extends Component {
   state = {
     data: [
       {
-        id: 0,
+        id: 0,//cones high
         value: 0,
       },
       {
-        id: 1,
+        id: 1,//cones mid
         value: 0,
       },
       {
-        id: 2,
+        id: 2,//cones low
         value: 0,
       },
       {
-        id: 3,
+        id: 3,//cones missed
         value: 0,
       },
       {
-        id: 4,
+        id: 4,//cubes high
         value: 0,
       },
       {
-        id: 5,
+        id: 5,//cubes mid
+        value: 0,
+      },
+      {
+        id: 6,//cubes low
+        value: 0,
+      },
+      {
+        id: 7,//cubes missed
+        value: 0,
+      },
+      {
+        id: 8,//intake from
+        value: "NoInputIntake",
+      },
+      {
+        id: 9,//defense
+        value: 0,
+      },
+      //endgame
+      {
+        id: 10,//attempted charge station
         value: false,
       },
       {
-        id: 6,
-        value: false,
+        id: 11,//charge station
+        value: "NoInputCSTeleop",
       },
       {
-        id: 7,
-        value: FontFaceSetLoadEvent,
+        id: 12,
+        value: "NoInputClimbEfficiency"
       },
       {
-        id: 8,
-        value: 0,
-      },
-      // endgame
-      {
-        id: 9,
-        value: false,
-      },
-      {
-        id: 10,
-        value: '',
-      },
-      {
-        id: 11,
-        value: 30,
-      },
+        id: 13,
+        value: "NoInputTimeLeft"
+      }
     ],
   };
   sendData = (data) => {
@@ -95,16 +103,16 @@ export class Teleloperated extends Component {
 							<PlusMinusStat
 								title='Cones High'
 								send={this.sendData}
-								id={2}
-								entryName={'conesHighAuto'}//was lowerScoredAuto
+								id={0}
+								entryName={'conesHighTeleop'}//was lowerScoredAuto
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
 								title='Cones Mid'
 								send={this.sendData}
-								id={2}
-								entryName={'conesMidAuto'}//was 
+								id={1}
+								entryName={'conesMidTeleop'}//was 
 							/>
 						</Col>
 						<Col>
@@ -112,15 +120,15 @@ export class Teleloperated extends Component {
 								title='Cones Low'
 								send={this.sendData}
 								id={2}
-								entryName={'conesLowAuto'}
+								entryName={'conesLowTeleop'}
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
 								title='Cones Missed'
 								send={this.sendData}
-								id={2}
-								entryName={'cubesLowAuto'}
+								id={3}
+								entryName={'conesMissedTeleop'}
 							/>
 						</Col>
 						</Row>
@@ -134,32 +142,32 @@ export class Teleloperated extends Component {
 							<PlusMinusStat
 								title='Cubes High'
 								send={this.sendData}
-								id={2}
-								entryName={'cubesHighAuto'}
+								id={4}
+								entryName={'cubesHighTeleop'}
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
 								title='Cubes Mid'
 								send={this.sendData}
-								id={2}
-								entryName={'cubesMidAuto'}
+								id={5}
+								entryName={'cubesMidTeleop'}
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
 								title='Cubes Low'
 								send={this.sendData}
-								id={2}
-								entryName={'cubesLowAuto'}
+								id={6}
+								entryName={'cubesLowTeleop'}
 							/>
 						</Col>
             <Col>
 							<PlusMinusStat
 								title='Cubes Missed'
 								send={this.sendData}
-								id={2}
-								entryName={'cubesLowAuto'}
+								id={7}
+								entryName={'cubesMissedTeleop'}
 							/>
 						</Col>
 					</Row>
@@ -174,8 +182,8 @@ export class Teleloperated extends Component {
 								title='Intake From'
 								options={["Floor", "Shelf"]}
 								send={this.sendData}
-								id={0}
-								entryName={'No Input CS'}//CS = Charging Station
+								id={8}
+								entryName={'intakeFrom'}//CS = Charging Station
 							/>
 						</Col>
             <Col>
@@ -183,7 +191,7 @@ export class Teleloperated extends Component {
                 title="Defense"
                 options={[1, 2, 3, 4, 5]}
                 send={this.sendData}
-                id={8}
+                id={9}
                 entryName={"defense"}
               />
             </Col>
@@ -201,8 +209,8 @@ export class Teleloperated extends Component {
               <BooleanStat
                 title="Attempted Charge Station?"
                 send={this.sendData}
-                id={9}
-                entryName={"climbed"}
+                id={10}
+                entryName={"CSattempt"}
               />
             </Col>
             <Col>
@@ -210,8 +218,8 @@ export class Teleloperated extends Component {
 								title='Charging Station'
 								options={["Docked", "Engaged", "None"]}
 								send={this.sendData}
-								id={0}
-								entryName={'No Input CS'}//CS = Charging Station
+								id={11}
+								entryName={'NoInputCSTeleop'}//CS = Charging Station
 							/>
 						</Col>
           </Row>
@@ -226,8 +234,8 @@ export class Teleloperated extends Component {
                 title="Climb Efficiency"
                 options={["0","1","2", "3", "4", "5"]}
                 send={this.sendData}
-                id={10}
-                entryName={"climbLevel"}
+                id={12}
+                entryName={"climbEfficiency"}
               />
             </Col>
           </Row>
@@ -243,7 +251,7 @@ export class Teleloperated extends Component {
               <p> Time Left </p>
               <InputGroup
                 style={halfWidth}
-                id={11}
+                id={13}
                 entryName={"timeleft"}
                 onChange={this.sendInput}
               >
