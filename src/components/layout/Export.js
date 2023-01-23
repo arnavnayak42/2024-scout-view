@@ -3,9 +3,14 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import {QRCodeCanvas} from 'qrcode.react';
+console.log(QRCodeCanvas);
+//var QRCode = require('qrcode.react');
 var QRCode = require('qrcode.react');
-export class Export extends Component {
+export class Export extends Component {//JSON.stringify(this.props.data)
 	render() {
+		let jack = JSON.stringify({"data":{"auto":[],"teleop":[{"id":7,"value":2},{"id":7,"value":2},{"id":7,"value":2},{"id":7,"value":2},{"id":7,"value":2},{"id":7,"value":2}],"endgame":[{"id":12,"value":"3"},{"id":13,"value":"NoInputTimeLeft"}]},"comment":"whats-good-g","matchNum":"2590","teamNum":"2","scout":"jivon"}).replace(/\s/g,'');
+		let settings = {"height": 400, "width": 400};
 		return (
 			<div>
 				<header>
@@ -17,7 +22,7 @@ export class Export extends Component {
 				</Row>
 				<Container fluid style={middle}>
 					<Row>
-						<QRCode value={JSON.stringify(this.props.data)} style={big} />
+						{/**<QRCode value={jack} style={big} renderAs="svg"/> */}<QRCode value={JSON.stringify(this.props.data)} style={big} renderAs="svg"/>
 					</Row>
 					<Row style={fs}>
 						{' '}
@@ -60,8 +65,8 @@ const big = {
 	textAlign: 'center',
 	margin: 'auto',
 	borderStyle: 'solid',
-	borderWidth: '10px',
-	borderColor: 'red',
+	borderWidth: '40px',
+	borderColor: 'white',
 	// width: '50vw',
 	height: window.innerHeight * 0.4,
 	width: window.innerHeight * 0.4,

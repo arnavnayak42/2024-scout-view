@@ -45,7 +45,7 @@ export class Teleloperated extends Component {
       },
       {
         id: 8,//intake from
-        value: "NoInputIntake",
+        value: "-1",
       },
       {
         id: 9,//defense
@@ -58,15 +58,15 @@ export class Teleloperated extends Component {
       },
       {
         id: 11,//charge station
-        value: "NoInputCSTeleop",
+        value: "-1",
       },
       {
         id: 12,
-        value: "NoInputClimbEfficiency"
+        value: "-1"
       },
       {
         id: 13,
-        value: "NoInputTimeLeft"
+        value: "-1"
       }
     ],
   };
@@ -180,7 +180,7 @@ export class Teleloperated extends Component {
           <Col>
 							<SwitchStat
 								title='Intake From'
-								options={["Floor", "Shelf"]}
+								options={["Floor", "Shelf", "Both"]}
 								send={this.sendData}
 								id={8}
 								entryName={'intakeFrom'}//CS = Charging Station

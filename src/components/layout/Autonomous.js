@@ -54,7 +54,7 @@ export class Autonomous extends Component {
 			},
 			{
 				id: 10, //charging station
-				value: "NoInputCSAuto",
+				value: "-1",
 			}
 		],
 	};
