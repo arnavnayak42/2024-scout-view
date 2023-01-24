@@ -13,29 +13,49 @@ export class Autonomous extends Component {
 	state = {
 		data: [
 			{
-				id: 0,
-				value: 'C',
+				id: 0,//starting position
+				value: '0',
 			},
 			{
-				id: 1,
+				id: 1,//left community 
 				value: false,
 			},
 			{
-				id: 2,
+				id: 2,//cones high
 				value: 0,
 			},
 			{
-				id: 3,
+				id: 3,//cones mid
 				value: 0,
 			},
 			{
-				id: 4,
+				id: 4, //cones low
 				value: 0,
 			},
 			{
-				id: 5,
+				id: 5, //cones missed
 				value: 0,
 			},
+			{
+				id: 6,//cubes high
+				value: 0,
+			},
+			{
+				id: 7, //cubes mid
+				value: 0,
+			},
+			{
+				id: 8, //cubes low 
+				value: 0,
+			},
+			{
+				id: 9,//cones missed
+				value: 0
+			},
+			{
+				id: 10, //charging station
+				value: "-1",
+			}
 		],
 	};
 	sendData = (data) => {
@@ -60,6 +80,16 @@ export class Autonomous extends Component {
 						</Col>
 					</Row>
 					<Row>
+						<Col>
+						<img src={require("../../Assets/key-for-starting-pos.png")} alt="Field diagram" />{/**this may not work globally? +convert this to webp*/}
+						</Col>
+						</Row>
+						<Row>
+						<Col>
+							<div style={topSpace}></div>
+						</Col>
+					</Row>
+					<Row>
 						<Col style={middleAllign}>
 							<p>Scout Name</p>
 							<InputGroup
@@ -73,7 +103,7 @@ export class Autonomous extends Component {
 						<Col>
 							<SwitchStat
 								title='Starting Position'
-								options={['C', 'T']}
+								options={['1', '2', '3', '4']}
 								send={this.sendData}
 								id={0}
 								entryName={'startPos'}
@@ -81,20 +111,11 @@ export class Autonomous extends Component {
 						</Col>
 						<Col>
 							<BooleanStat
-								title='Crossed Tarmac?'
+								title='Left Community?'
 								send={this.sendData}
 								id={1}
-								entryName={'crossTarmac'}
+								entryName={'leftCommunity'}//change this to leftTarmac //was crossTarmac
 							/>
-						</Col>
-						<Col>
-							{/* <Button
-								variant='outline-primary'
-								style={full}
-								onClick={this.props.tabSwitch}
-							>
-								Next
-							</Button> */}
 						</Col>
 					</Row>
 					<Row>
@@ -103,67 +124,98 @@ export class Autonomous extends Component {
 						</Col>
 					</Row>
 					<Row>
-						<Col>
+					<Col>
 							<PlusMinusStat
-								title='Lower Scored'
+								title='Cones High'
 								send={this.sendData}
 								id={2}
-								entryName={'lowerScoredAuto'}
-								// data={this.props.data}
-								// green={true}
+								entryName={'conesHighAuto'}//was lowerScoredAuto
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Lower Missed'
+								title='Cones Mid'
 								send={this.sendData}
 								id={3}
-								entryName={'lowerMissedAuto'}
+								entryName={'conesMidAuto'}//was 
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Upper Scored'
+								title='Cones Low'
 								send={this.sendData}
 								id={4}
-								entryName={'upperScoredAuto'}
-								// green={true}
+								entryName={'conesLowAuto'}
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Upper Missed'
+								title='Cones Missed'
 								send={this.sendData}
 								id={5}
-								entryName={'upperMissedAuto'}
+								entryName={'conesMissedAuto'}
 							/>
 						</Col>
-						{/* <Col>
-							<PlusMinusStat
-								title='Inside Tarmac'
-								send={this.sendData}
-								id={4}
-								entryName={'insideTarmac'}
-							/>
-						</Col>
+						</Row>
+						<Row>
 						<Col>
-							<PlusMinusStat
-								title='Outside Tarmac'
-								send={this.sendData}
-								id={5}
-								entryName={'outsideTarmac'}
-							/>
+							<div style={topSpace}></div>
 						</Col>
-						<Col>
+					</Row>
+					<Row>
+					<Col>
 							<PlusMinusStat
-								title='Fender'
+								title='Cubes High'
 								send={this.sendData}
 								id={6}
-								entryName={'fender'}
+								entryName={'cubesHighAuto'}
 							/>
-						</Col> */}
+						</Col>
+						 <Col>
+							<PlusMinusStat
+								title='Cubes Mid'
+								send={this.sendData}
+								id={7}
+								entryName={'cubesMidAuto'}
+							/>
+						</Col>
+						<Col>
+							<PlusMinusStat
+								title='Cubes Low'
+								send={this.sendData}
+								id={8}
+								entryName={'cubesLowAuto'}
+							/>
+						</Col>
+						<Col>
+							<PlusMinusStat
+								title='Cubes Missed'
+								send={this.sendData}
+								id={9}
+								entryName={'cubesMissedAuto'}
+							/>
+						</Col> 
 					</Row>
-					{/* <Row>
+					<Row>
+						<Col>
+							<div style={topSpace}></div>
+						</Col>
+					</Row>
+					<Row>
+					<Col>
+							<SwitchStat
+								title='Charging Station'
+								options={["Docked", "Engaged", "None"]}
+								send={this.sendData}
+								id={10}
+								entryName={'CSAuto'}//CS = Charging Station
+							/>
+						</Col>
+					</Row>
+					<Row>
+						<div style={specialspacer}></div>
+					</Row>
+					<Row>
 						<Col>
 							<Button
 								variant='outline-primary'
@@ -172,9 +224,12 @@ export class Autonomous extends Component {
 							>
 								Next
 							</Button>
-						</Col> */}
-					{/* </Row> */}
-					<Row>{/* <div style={spacer}></div> */}</Row>
+						</Col>
+					</Row>
+					<Row>
+						<div style={spacer}></div>
+					</Row>
+					
 				</Container>
 			</div>
 		);
@@ -193,6 +248,10 @@ const headerStyle = {
 
 const spacer = {
 	marginTop: '5vh',
+	width: '100%',
+};
+const specialspacer = {
+	marginTop: '0.3vh',
 	width: '100%',
 };
 const middleAllign = {};

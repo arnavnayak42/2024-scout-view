@@ -10,168 +10,165 @@ import FormControl from 'react-bootstrap/FormControl';
 import { Button } from 'react-bootstrap';
 let endgameDataStart = 9;
 export class Teleloperated extends Component {
-	state = {
-		data: [
-			{
-				id: 0,
-				value: 0,
-			},
-			{
-				id: 1,
-				value: 0,
-			},
-			{
-				id: 2,
-				value: 0,
-			},
-			{
-				id: 3,
-				value: 0,
-			},
-			// {
-			// 	id: 4,
-			// 	value: 0,
-			// },
-			{
-				id: 4,
-				value: 0,
-			},
-			{
-				id: 5,
-				value: 0,
-			},
-			{
-				id: 6,
-				value: 0,
-			},
-			{
-				id: 7,
-				value: 0,
-			},
-			{
-				id: 8,
-				value: 0,
-			},
-			{
-				id: 9,
-				value: 0,
-			},
-			// endgame
-			// {
-			// 	id: 10,
-			// 	value: false,
-			// },
-			{
-				id: 10,
-				value: '',
-			},
-			{
-				id: 11,
-				value: 30,
-			},
-		],
-
-		// tzoneAttempt initAttempt nTrenchAttempt fTrenchAttmpt defense climbed leveled climbedPos parked timeleft
-	};
-	sendData = (data) => {
-		let currentState = this.state.data;
-		currentState[data.id] = data;
-		this.setState({ currentState }, () => {
-			let teleopData = currentState.slice(0, endgameDataStart);
-			this.props.sendTeleop(teleopData);
-			let endgameData = currentState.slice(endgameDataStart);
-			this.props.sendEndgame(endgameData);
-		});
-	};
-	sendInput = (data) => {
-		let currentState = this.state.data;
-		currentState[11].value = data.target.value; // hard coded for now until text fields are a component
-		this.setState({ currentState }, () => {
-			let teleopData = currentState.slice(0, endgameDataStart);
-			this.props.sendTeleop(teleopData);
-			let endgameData = currentState.slice(endgameDataStart);
-			this.props.sendEndgame(endgameData);
-		});
-	};
-	render() {
-		return (
-			<div>
-				<header>
-					<h3 style={headerStyle}>Teleloperated</h3>
-				</header>
-				<div style={topSpace}></div>
-				<Container fluid style={center}>
-					<Row>
-						<Col>
+  state = {
+    data: [
+      {
+        id: 0,//cones high
+        value: 0,
+      },
+      {
+        id: 1,//cones mid
+        value: 0,
+      },
+      {
+        id: 2,//cones low
+        value: 0,
+      },
+      {
+        id: 3,//cones missed
+        value: 0,
+      },
+      {
+        id: 4,//cubes high
+        value: 0,
+      },
+      {
+        id: 5,//cubes mid
+        value: 0,
+      },
+      {
+        id: 6,//cubes low
+        value: 0,
+      },
+      {
+        id: 7,//cubes missed
+        value: 0,
+      },
+      {
+        id: 8,//intake from
+        value: "-1",
+      },
+      {
+        id: 9,//defense
+        value: 0,
+      },
+      //endgame
+      {
+        id: 10,//attempted charge station
+        value: false,
+      },
+      {
+        id: 11,//charge station
+        value: "-1",
+      },
+      {
+        id: 12,
+        value: "-1"
+      },
+      {
+        id: 13,
+        value: "-1"
+      }
+    ],
+  };
+  sendData = (data) => {
+    let currentState = this.state.data;
+    currentState[data.id] = data;
+    this.setState({ currentState }, () => {
+      let teleopData = currentState.slice(0, endgameDataStart);
+      this.props.sendTeleop(teleopData);
+      let endgameData = currentState.slice(endgameDataStart);
+      this.props.sendEndgame(endgameData);
+    });
+  };
+  sendInput = (data) => {
+    let currentState = this.state.data;
+    currentState[11].value = data.target.value; // hard coded for now until text fields are a component
+    this.setState({ currentState }, () => {
+      let teleopData = currentState.slice(0, endgameDataStart);
+      this.props.sendTeleop(teleopData);
+      let endgameData = currentState.slice(endgameDataStart);
+      this.props.sendEndgame(endgameData);
+    });
+  };
+  render() {
+    return (
+      <div>
+        <header>
+          <h3 style={headerStyle}>Teleoperated</h3>
+        </header>
+        <div style={topSpace}></div>
+        <Container fluid style={center}>
+        <Row>
+					<Col>
 							<PlusMinusStat
-								title='Upper Scored'
+								title='Cones High'
 								send={this.sendData}
 								id={0}
-								entryName={'upperScoredTeleop'}
+								entryName={'conesHighTeleop'}//was lowerScoredAuto
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Upper Missed'
+								title='Cones Mid'
 								send={this.sendData}
 								id={1}
-								entryName={'upperMissedTeleop'}
+								entryName={'conesMidTeleop'}//was 
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Bottom Scored'
+								title='Cones Low'
 								send={this.sendData}
 								id={2}
-								entryName={'bottomScoredTeleop'}
+								entryName={'conesLowTeleop'}
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Bottom Missed'
+								title='Cones Missed'
 								send={this.sendData}
 								id={3}
-								entryName={'bottomMissedTeleop'}
+								entryName={'conesMissedTeleop'}
 							/>
 						</Col>
-					</Row>
-					<Row>
+						</Row>
+						<Row>
 						<Col>
 							<div style={topSpace}></div>
 						</Col>
 					</Row>
 					<Row>
-						<Col>
+					<Col>
 							<PlusMinusStat
-								title='Fender?'
+								title='Cubes High'
 								send={this.sendData}
-								value={this.data}
 								id={4}
-								entryName={'fender'}
+								entryName={'cubesHighTeleop'}
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Tarmac?'
+								title='Cubes Mid'
 								send={this.sendData}
 								id={5}
-								entryName={'tarmac'}
+								entryName={'cubesMidTeleop'}
 							/>
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Launch Pad?'
+								title='Cubes Low'
 								send={this.sendData}
 								id={6}
-								entryName={'launchPad'}
+								entryName={'cubesLowTeleop'}
 							/>
 						</Col>
-						<Col>
+            <Col>
 							<PlusMinusStat
-								title='Outside Tarmac?'
+								title='Cubes Missed'
 								send={this.sendData}
 								id={7}
-								entryName={'outsideTarmac'}
+								entryName={'cubesMissedTeleop'}
 							/>
 						</Col>
 					</Row>
@@ -180,82 +177,98 @@ export class Teleloperated extends Component {
 							<div style={topSpace}></div>
 						</Col>
 					</Row>
-					<Row>
-						<Col>
+          <Row>
+          <Col>
 							<SwitchStat
-								title='Defense Quality'
-								options={['NA', 'Awful', 'Ok', 'Good', 'Great']}
+								title='Intake From'
+								options={["Floor", "Shelf", "Both"]}
 								send={this.sendData}
 								id={8}
-								entryName={'defenseQuality'}
+								entryName={'intakeFrom'}//CS = Charging Station
 							/>
 						</Col>
-						<Col>
+            <Col>
+              <SwitchStat
+                title="Defense"
+                options={[1, 2, 3, 4, 5]}
+                send={this.sendData}
+                id={9}
+                entryName={"defense"}
+              />
+            </Col>
+          </Row>
+          <div style={topSpace}></div>
+        </Container>
+        <div style={topSpace}></div>
+        <header style={headerStyle}>
+          <h3>Endgame</h3>
+        </header>
+        <div style={topSpace}></div>
+        <Container fluid style={center}>
+          <Row>
+            <Col>
+              <BooleanStat
+                title="Attempted Charge Station?"
+                send={this.sendData}
+                id={10}
+                entryName={"CSattempt"}
+              />
+            </Col>
+            <Col>
 							<SwitchStat
-								title='Defense Quantity %'
-								options={[0, 25, 50, 75, 100]}
+								title='Charging Station'
+								options={["Docked", "Engaged", "None"]}
 								send={this.sendData}
-								id={9}
-								entryName={'defenseQuantity'}
-							/>
-						</Col>
-					</Row>
-					<div style={topSpace}></div>
-				</Container>
-				<div style={topSpace}></div>
-				<header style={headerStyle}>
-					<h3>Endgame</h3>
-				</header>
-				<div style={topSpace}></div>
-				<Container fluid style={center}>
-					<Row>
-						{/* <Col>
-							<BooleanStat
-								title='Climbed?'
-								send={this.sendData}
-								id={10}
-								entryName={'climbed'}
-							/>
-						</Col> */}
-						<Col>
-							<SwitchStat
-								title='Level'
-								options={['NA', 'Fail', 'L', 'M', 'H', 'T']}
-								send={this.sendData}
-								id={10}
-								entryName={'climbLevel'}
-							/>
-						</Col>
-					</Row>
-					<div style={topSpace}></div>
-					<div style={topSpace}></div>
-					<Row>
-						<Col>
-							<div style={topSpace}></div>
-						</Col>
-					</Row>
-					<Row>
-						<Col>
-							<p> Time Left </p>
-							<InputGroup
-								style={halfWidth}
 								id={11}
-								entryName={'timeleft'}
-								onChange={this.sendInput}
-							>
-								<FormControl className='textField' />
-							</InputGroup>
+								entryName={'CSTeleop'}//CS = Charging Station
+							/>
 						</Col>
-					</Row>
-					<Row>
+          </Row>
+          <Row>
 						<Col>
 							<div style={topSpace}></div>
 						</Col>
 					</Row>
-				</Container>
-			</div>
-		);
-	}
+          <Row>
+            <Col>
+            <SwitchStat
+                title="Climb Efficiency/Stability"
+                options={["0","1","2", "3", "4", "5"]}
+                send={this.sendData}
+                id={12}
+                entryName={"climbEfficiency"}
+              />
+            </Col>
+          </Row>
+          <div style={topSpace}></div>  
+          <div style={topSpace}></div>
+          <Row>
+            <Col>
+              <div style={topSpace}></div>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <p> Time Left </p>
+              <InputGroup
+                style={halfWidth}
+                id={13}
+                entryName={"timeleft"}
+                onChange={this.sendInput}
+              >
+                <FormControl />
+              </InputGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <div style={topSpace}></div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    );
+  }
 }
 const headerStyle = {
 	textAlign: 'center',

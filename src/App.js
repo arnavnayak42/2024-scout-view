@@ -232,6 +232,9 @@ class App extends Component {
 			clearCount: this.state.clearCount,
 		});
 	};
+	static getTab = () => {
+		return this.state.activeTab;
+	  }
 }
 const space = {
 	paddingTop: '25vh',

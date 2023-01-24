@@ -10,13 +10,14 @@
 html {
 }
 body {
-	font-family: Light, Helvetica, sans-serif;
-	line-height: 1.4;
-	/* background-image: url(Assets/background.jpg); */
-	background-position: center; /* Center the image */
-	background-repeat: no-repeat; /* Do not repeat the image */
-	background-size: cover; /* Resize the background image to cover the entire container */
-	color: white;
+  font-family: Light, Helvetica, sans-serif;
+  line-height: 1.4;
+  background-image: url(Assets/background.jpg);
+  background-position: center; /* Center the image */
+  background-repeat: repeat; /* Do not repeat the image , 1/13/23 - changed to repeat the image*/
+  background-size: cover; /* Resize the background image to cover the entire container */
+  color: white;
+
 }
 .redbgimg {
 	/* background-image: url(Assets/background.jpg); */
@@ -128,7 +129,18 @@ a:hover {
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-	color: #ffffff;
-	background-color: #ffaeae;
-	border-color: #ff5555 #ff5555 #ff5555;
+  color: #ffffff;
+  background-color: #ffaeae;
+  border-color: #ff5555 #ff5555 #ff5555;
+}/*
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}*/
+.comment{
+  text-align: center;
+  margin: auto;
+  width: 80%;
+  margin-top: 540px;
 }
