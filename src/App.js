@@ -188,7 +188,7 @@ class App extends Component {
 						style={fullscreen}
 						data={this.state.dataset}
 						reset={this.resetLmao}
-						style={{ display: 'none' }}
+						// style={{ display: 'none' }}
 					/>
 					<Comment
 						style={{ display: this.state.activeTab == 1 ? 'none' : 'none' }}

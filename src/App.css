@@ -12,7 +12,7 @@ html {
 body {
   font-family: Light, Helvetica, sans-serif;
   line-height: 1.4;
-  background-image: url(Assets/background.jpg);
+  background-image: url(Assets/background.jpg);/*new version doens't have background image*/
   background-position: center; /* Center the image */
   background-repeat: repeat; /* Do not repeat the image , 1/13/23 - changed to repeat the image*/
   background-size: cover; /* Resize the background image to cover the entire container */
