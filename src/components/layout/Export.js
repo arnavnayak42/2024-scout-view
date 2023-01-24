@@ -11,6 +11,24 @@ export class Export extends Component {//JSON.stringify(this.props.data)
 	render() {
 		let jack = JSON.stringify({"data":{"auto":[],"teleop":[{"id":7,"value":2},{"id":7,"value":2},{"id":7,"value":2},{"id":7,"value":2},{"id":7,"value":2},{"id":7,"value":2}],"endgame":[{"id":12,"value":"3"},{"id":13,"value":"NoInputTimeLeft"}]},"comment":"whats-good-g","matchNum":"2590","teamNum":"2","scout":"jivon"}).replace(/\s/g,'');
 		let settings = {"height": 400, "width": 400};
+		let newData = [];
+		let data = this.props.data.data;
+
+		newData.push(this.props.data.matchNum);
+		newData.push(this.props.data.teamNum);
+		newData.push(this.props.data.comment);
+
+		for (let i = 0; i < data.auto.length; i++) {
+			newData.push(data.auto[i].value);
+		}
+		for (let i = 0; i < data.teleop.length; i++) {
+			newData.push(data.teleop[i].value);
+		}
+		for (let i = 0; i < data.endgame.length; i++) {
+			newData.push(data.endgame[i].value);
+		}
+		newData.push(this.props.data.scout);
+
 		return (
 			<div>
 				<header>
@@ -22,11 +40,14 @@ export class Export extends Component {//JSON.stringify(this.props.data)
 				</Row>
 				<Container fluid style={middle}>
 					<Row>
-						{/**<QRCode value={jack} style={big} renderAs="svg"/> */}<QRCode value={JSON.stringify(this.props.data)} style={big} renderAs="svg"/>
+						{/**<QRCode value={jack} style={big} renderAs="svg"/> */}<QRCode value={JSON.stringify(newData)} style={big} renderAs="svg"/>
 					</Row>
 					<Row style={fs}>
 						{' '}
 						<div style={topSpace}></div>{' '}
+					</Row>
+					<Row>
+						<Col></Col>
 					</Row>
 				</Container>
 			</div>
@@ -35,8 +56,14 @@ export class Export extends Component {//JSON.stringify(this.props.data)
 }
 
 const topSpace = {
-	marginTop: '25vh',
+	marginTop: '20vh',
 	width: '100%',
+};
+const clearButton = {
+	textAlign: 'center',
+	margin: 'auto',
+	width: window.innerWidth * 0.2,
+	marginBottom: '5%',
 };
 const headerStyle = {
 	textAlign: 'center',
