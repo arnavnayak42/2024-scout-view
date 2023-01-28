@@ -8,7 +8,7 @@ import Autonomous from './components/layout/Autonomous';
 import Teleoperated from './components/layout/Teleoperated';
 import Export from './components/layout/Export';
 import Comment from './components/layout/Comment';
-class DataSet{
+class DataSet{//checking smth
   constructor(){
       this.data = {auto:[],teleop:[],endgame:[]};
       this.comment = "";
