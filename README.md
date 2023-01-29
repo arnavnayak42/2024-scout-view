@@ -1,1 +1,1 @@
-Nemesis' scouting interface for 2022 FIRST Robotics Competition, Rapid React
+Nemesis' scouting interface for 2023 FIRST Robotics Competition, Charge Up
