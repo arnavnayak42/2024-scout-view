@@ -62,6 +62,8 @@ export class Autonomous extends Component {
 		let currentState = this.state.data;
 		currentState[data.id] = data;
 		this.setState({ currentState }, () => {
+			console.log('updating data in qr code');
+			console.log(currentState);
 			this.props.send(currentState);
 		});
 	};
@@ -95,7 +97,7 @@ export class Autonomous extends Component {
 								onChange={this.props.updateScout}
 								type='text'
 							>
-								<FormControl></FormControl>
+								<FormControl className='textField'></FormControl>
 							</InputGroup>
 						</Col>
 						<Col>
@@ -169,7 +171,7 @@ export class Autonomous extends Component {
 								entryName={'cubesHighAuto'}
 							/>
 						</Col>
-						<Col>
+						 <Col>
 							<PlusMinusStat
 								title='Cubes Mid'
 								send={this.sendData}
@@ -192,7 +194,7 @@ export class Autonomous extends Component {
 								id={9}
 								entryName={'cubesMissedAuto'}
 							/>
-						</Col>
+						</Col> 
 					</Row>
 					<Row>
 						<Col>
@@ -213,7 +215,7 @@ export class Autonomous extends Component {
 					<Row>
 						<div style={specialspacer}></div>
 					</Row>
-					<Row>
+					{/* <Row>
 						<Col>
 							<Button
 								variant='outline-primary'
@@ -223,7 +225,7 @@ export class Autonomous extends Component {
 								Next
 							</Button>
 						</Col>
-					</Row>
+					</Row> */}
 					<Row>
 						<div style={spacer}></div>
 					</Row>
@@ -255,8 +257,8 @@ const specialspacer = {
 const middleAllign = {};
 const full = {
 	marginTop: '10%',
-	width: '20%',
-	height: '40%',
+	width: '40%',
+	height: '80%',
 };
 const topSpace = {
 	marginTop: '5vh',

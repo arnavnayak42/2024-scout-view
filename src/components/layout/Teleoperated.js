@@ -1,13 +1,14 @@
-import React, { Component } from "react";
-import PlusMinusStat from "../PlusMinusStat";
-import BooleanStat from "../BooleanStat";
-import SwitchStat from "../SwitchStat";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
-let endgameDataStart = 12;
+import React, { Component } from 'react';
+import PlusMinusStat from '../PlusMinusStat';
+import BooleanStat from '../BooleanStat';
+import SwitchStat from '../SwitchStat';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
+import { Button } from 'react-bootstrap';
+let endgameDataStart = 9;
 export class Teleloperated extends Component {
   state = {
     data: [
@@ -61,7 +62,7 @@ export class Teleloperated extends Component {
         value: "-1",
       },
       {
-        id: 12,
+        id: 12,//
         value: "-1"
       },
       {
@@ -93,9 +94,11 @@ export class Teleloperated extends Component {
   render() {
     return (
       <div>
+        <div style={veryTopSpace}>
         <header>
           <h3 style={headerStyle}>Teleoperated</h3>
         </header>
+        </div>
         <div style={topSpace}></div>
         <Container fluid style={center}>
         <Row>
@@ -270,24 +273,33 @@ export class Teleloperated extends Component {
   }
 }
 const headerStyle = {
-  textAlign: "center",
-  fontSize: "2.5em",
-  padding: "1em",
-  paddingBottom: "20px",
-  paddingTop: "20px",
-  fontFamily: "Code",
-  backgroundColor: "#ff5555",
-  color: "white",
+	textAlign: 'center',
+	fontSize: '2.5em',
+	padding: '1em',
+	paddingBottom: '20px',
+	paddingTop: '20px',
+	fontFamily: 'Code',
+	backgroundColor: '#ff5555',
+	color: 'white',
 };
 const topSpace = {
-  marginTop: "5vh",
-  width: "100%",
+	marginTop: '5vh',
+	width: '100%',
 };
+const veryTopSpace = {
+  marginTop: '650px',
+  width: '100%'
+}
 const halfWidth = {
-  width: "50%",
-  margin: "auto",
+	width: '50%',
+	margin: 'auto',
 };
 const center = {
-  textAlign: "center",
+	textAlign: 'center',
+};
+const full = {
+	marginTop: '0%',
+	width: '40%',
+	height: '80%',
 };
 export default Teleloperated;
