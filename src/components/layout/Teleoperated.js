@@ -62,11 +62,11 @@ export class Teleloperated extends Component {
         value: "-1",
       },
       {
-        id: 12,//
+        id: 12, //climb efficiency
         value: "-1"
       },
       {
-        id: 13,
+        id: 13,//time left
         value: "-1"
       }
     ],
