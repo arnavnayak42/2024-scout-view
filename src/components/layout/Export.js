@@ -17,19 +17,23 @@ export class Export extends Component {//JSON.stringify(this.props.data)
 		newData.push(this.props.data.teamNum);
 		newData.push(this.props.data.comment);
 		console.log("auton")
+		let x = 3;//this is to see the index of a certain value, starting at 3 b/c the first 3 are match num, team num, and comment
 		for (let i = 0; i < data.auto.length; i++) {
 			newData.push(data.auto[i].value);
-			console.log("id:" + i + ", value: " + data.auto[i].value + ", actual id: " + data.auto[i].id);
+			console.log("id:" + i + ", value: " + data.auto[i].value + ", actual index: " + x);
+			x++;
 		}
 		console.log("teleop");
 		for (let i = 0; i < data.teleop.length; i++) {
 			newData.push(data.teleop[i].value);
-			console.log("id:" + i + ", value: " + data.teleop[i].value + ", actual id: " + data.teleop[i].id);
+			console.log("id:" + i + ", value: " + data.teleop[i].value + ", actual index: " + x);
+			x++;
 		}
 		console.log("endgame");
 		for (let i = 0; i < data.endgame.length; i++) {
 			newData.push(data.endgame[i].value);
-			console.log("id:" + i + ", value: " + data.endgame[i].value + ", actual id: " + data.endgame[i].id);
+			console.log("id:" + i + ", value: " + data.endgame[i].value + ", actual index: " + x);
+			x++;
 		}
 		newData.push(this.props.data.scout);
 		console.log(newData);
