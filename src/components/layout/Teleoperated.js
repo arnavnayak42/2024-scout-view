@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import { Button } from 'react-bootstrap';
-let endgameDataStart = 9;
+let endgameDataStart = 13;
 export class Teleloperated extends Component {
   state = {
     data: [
@@ -107,7 +107,7 @@ export class Teleloperated extends Component {
   };
   sendInput = (data) => {
     let currentState = this.state.data;
-    currentState[11].value = data.target.value; // hard coded for now until text fields are a component
+    currentState[15].value = data.target.value; // hard coded for now until text fields are a component
     this.setState({ currentState }, () => {
       let teleopData = currentState.slice(0, endgameDataStart);
       this.props.sendTeleop(teleopData);
@@ -236,7 +236,7 @@ export class Teleloperated extends Component {
 								options={[0, 25, 50, 75, 100]}
 								send={this.sendData}
 								id={11}
-								entryName={'intakeFrom'}//CS = Charging Station
+								entryName={'defenseQuantity'}//CS = Charging Station
 							/>
 						</Col>
             <Col>
@@ -245,7 +245,7 @@ export class Teleloperated extends Component {
                 options={[0,1, 2, 3, 4, 5]}
                 send={this.sendData}
                 id={12}
-                entryName={"defense"}
+                entryName={"defenseQuality"}
               />
             </Col>
           </Row>
@@ -275,9 +275,10 @@ export class Teleloperated extends Component {
             <Col>
             <SwitchStat
                 title="Additional Robots"
-                options={[1,2,3]}
+                options={[0,1,2]}
                 send={this.sendData}
                 id={14}
+                entryName={'additionalRobots'}
             ></SwitchStat>
             </Col>
           </Row>
@@ -287,7 +288,7 @@ export class Teleloperated extends Component {
 						</Col>
 					</Row>
           <div style={topSpace}></div>  
-          <div style={topSpace}></div>
+          {/* <div style={topSpace}></div> */}
           <Row>
             <Col>
               <div style={topSpace}></div>
@@ -304,6 +305,11 @@ export class Teleloperated extends Component {
               >
                 <FormControl />
               </InputGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <div style={topSpace}></div>
             </Col>
           </Row>
           <Row>
