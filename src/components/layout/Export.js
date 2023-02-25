@@ -13,22 +13,26 @@ export class Export extends Component {//JSON.stringify(this.props.data)
 		let settings = {"height": 400, "width": 400};
 		let newData = [];
 		let data = this.props.data.data;
-
 		newData.push(this.props.data.matchNum);
 		newData.push(this.props.data.teamNum);
 		newData.push(this.props.data.comment);
-
+		console.log("auton")
 		for (let i = 0; i < data.auto.length; i++) {
 			newData.push(data.auto[i].value);
+			console.log("id:" + i + ", value: " + data.auto[i].value + ", actual id: " + data.auto[i].id);
 		}
+		console.log("teleop");
 		for (let i = 0; i < data.teleop.length; i++) {
 			newData.push(data.teleop[i].value);
+			console.log("id:" + i + ", value: " + data.teleop[i].value + ", actual id: " + data.teleop[i].id);
 		}
+		console.log("endgame");
 		for (let i = 0; i < data.endgame.length; i++) {
 			newData.push(data.endgame[i].value);
+			console.log("id:" + i + ", value: " + data.endgame[i].value + ", actual id: " + data.endgame[i].id);
 		}
 		newData.push(this.props.data.scout);
-
+		console.log(newData);
 		return (
 			<div>
 				<header>
