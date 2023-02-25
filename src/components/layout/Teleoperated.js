@@ -46,7 +46,7 @@ export class Teleloperated extends Component {
       },
       {
         id: 8,//Intake From Floor 
-        value: "-1",
+        value: 0,
       },
       {
         id: 9,//Intake From Shelf 
@@ -55,7 +55,7 @@ export class Teleloperated extends Component {
       //endgame
       {
         id: 10,//Intake From Substation        
-        value: false,
+        value: 0,
       },
       {
         id: 11,//Defense Quantity 
@@ -83,15 +83,15 @@ export class Teleloperated extends Component {
       },
       {
         id:17,//Moved Pieces Between Nodes
-        value:"-1"
+        value: false
       },
       {
         id:18,//Dropped Pieces Between Nodes
-        value:"-1"
+        value: false
       },
       {
         id:19,//Long Time to Intake 
-        value:"-1"
+        value: false
       }
     ],
   };
