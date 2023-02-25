@@ -100,7 +100,7 @@ const big = {
 	textAlign: 'center',
 	margin: 'auto',
 	borderStyle: 'solid',
-	borderWidth: '40px',
+	borderWidth: '20px',
 	borderColor: 'white',
 	// width: '50vw',
 	height: window.innerHeight * 0.4,
