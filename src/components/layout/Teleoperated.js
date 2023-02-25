@@ -45,29 +45,53 @@ export class Teleloperated extends Component {
         value: 0,
       },
       {
-        id: 8,//intake from
+        id: 8,//Intake From Floor 
         value: "-1",
       },
       {
-        id: 9,//defense
+        id: 9,//Intake From Shelf 
         value: 0,
       },
       //endgame
       {
-        id: 10,//attempted charge station
+        id: 10,//Intake From Substation        
         value: false,
       },
       {
-        id: 11,//charge station
+        id: 11,//Defense Quantity 
         value: "-1",
       },
       {
-        id: 12, //climb efficiency
+        id: 12, //Defense Quality 
         value: "-1"
       },
       {
-        id: 13,//time left
+        id: 13,//Charging Station
         value: "-1"
+      },
+      {
+        id: 14, //Additional Robots  
+        value:"-1"
+      },
+      {
+        id:15, //Time Left
+        value: "-1"
+      },
+      {
+        id:16, //Slow or Fast
+        value:"-1"
+      },
+      {
+        id:17,//Moved Pieces Between Nodes
+        value:"-1"
+      },
+      {
+        id:18,//Dropped Pieces Between Nodes
+        value:"-1"
+      },
+      {
+        id:19,//Long Time to Intake 
+        value:"-1"
       }
     ],
   };
@@ -92,7 +116,7 @@ export class Teleloperated extends Component {
     });
   };
   render() {
-    return (
+    return (  
       <div>
         <div style={veryTopSpace}>
         <header>
@@ -181,20 +205,46 @@ export class Teleloperated extends Component {
 					</Row>
           <Row>
           <Col>
+          <PlusMinusStat
+            title = "Intake From Floor"
+            send = {this.sendData}
+            id={8}
+            entryName={'intakeFromFloor'}
+          ></PlusMinusStat>
+          </Col>
+          <Col>
+          <PlusMinusStat
+            title = "Intake From Shelf"
+            send = {this.sendData}
+            id={9}
+            entryName={'intakeFromShelf'}
+          ></PlusMinusStat>
+          </Col>
+          <Col>
+          <PlusMinusStat
+            title = "Intake From Substation"
+            send = {this.sendData}
+            id={10}
+            entryName={'intakeFromSubstation'}
+          ></PlusMinusStat>
+          </Col>
+          </Row>
+          <Row>
+          <Col>
 							<SwitchStat
-								title='Intake From'
-								options={["Floor", "Shelf", "Both"]}
+								title='Defence Quantity(%)'
+								options={[0, 25, 50, 75, 100]}
 								send={this.sendData}
-								id={8}
+								id={11}
 								entryName={'intakeFrom'}//CS = Charging Station
 							/>
 						</Col>
             <Col>
               <SwitchStat
-                title="Defense"
-                options={[1, 2, 3, 4, 5]}
+                title="Defense Quality"
+                options={[0,1, 2, 3, 4, 5]}
                 send={this.sendData}
-                id={9}
+                id={12}
                 entryName={"defense"}
               />
             </Col>
@@ -209,39 +259,33 @@ export class Teleloperated extends Component {
         <Container fluid style={center}>
           <Row>
             <Col>
-              <BooleanStat
-                title="Attempted Charge Station?"
-                send={this.sendData}
-                id={10}
-                entryName={"CSattempt"}
-              />
-            </Col>
-            <Col>
 							<SwitchStat
 								title='Charging Station'
-								options={["Docked", "Engaged", "None"]}
+								options={["Docked", "Engaged", "Parked", "None"]}
 								send={this.sendData}
-								id={11}
+								id={13}
 								entryName={'CSTeleop'}//CS = Charging Station
 							/>
 						</Col>
+          </Row>
+          <Row>
+          <div style={topSpace}></div>
+          </Row>
+          <Row>
+            <Col>
+            <SwitchStat
+                title="Additional Robots"
+                options={[1,2,3]}
+                send={this.sendData}
+                id={14}
+            ></SwitchStat>
+            </Col>
           </Row>
           <Row>
 						<Col>
 							<div style={topSpace}></div>
 						</Col>
 					</Row>
-          <Row>
-            <Col>
-            <SwitchStat
-                title="Climb Efficiency/Stability"
-                options={["0","1","2", "3", "4", "5"]}
-                send={this.sendData}
-                id={12}
-                entryName={"climbEfficiency"}
-              />
-            </Col>
-          </Row>
           <div style={topSpace}></div>  
           <div style={topSpace}></div>
           <Row>
@@ -254,7 +298,7 @@ export class Teleloperated extends Component {
               <p> Time Left </p>
               <InputGroup
                 style={halfWidth}
-                id={13}
+                id={15}
                 entryName={"timeleft"}
                 onChange={this.sendInput}
               >
@@ -262,6 +306,42 @@ export class Teleloperated extends Component {
               </InputGroup>
             </Col>
           </Row>
+          <Row>
+          <Col>
+          <SwitchStat
+            title="Slow or Fast"
+            options = {["Slow", "Fast"]}
+            send={this.sendData}
+            id = {16}
+            entryName={"slowOrfast"}
+          ></SwitchStat>
+          </Col>
+          <Col>
+          <BooleanStat
+            title="Moved Pieces Between Nodes"
+            send={this.sendData}
+            id = {17}
+            entryName={"movedPiecesBetweenNodes"}
+            ></BooleanStat>
+          </Col>
+          <Col>
+          <BooleanStat
+            title="Dropped Pieces Between Nodes"
+            send={this.sendData}
+            id = {18}
+            entryName={"droppedPiecesBetweenNodes"}
+          ></BooleanStat>
+          </Col>
+          <Col>
+          <BooleanStat
+            title="Long Time To Intake"
+            send={this.sendData}
+            id = {19}
+            entryName={"longTimeToIntake"}
+          ></BooleanStat>
+          </Col>
+          </Row>
+
           <Row>
             <Col>
               <div style={topSpace}></div>
