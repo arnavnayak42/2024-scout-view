@@ -61,6 +61,7 @@ export class PreMadeComments extends Component{
       options = {["Slow", "Fast"]}
       send={this.sendData}
       id = {0}
+      defValue={"-1"}
       entryName={"slowOrfast"}
     ></SwitchStat>
     </Col>

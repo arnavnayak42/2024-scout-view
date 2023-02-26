@@ -4,7 +4,7 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import Button from 'react-bootstrap/Button';
 import { ClearContext } from '../App';
 
-export default function SwitchStat({ title, send, options, id }) {
+export default function SwitchStat({ title, send, options, id, defValue}) {
 	const [value, setValue] = useState('none');
 	const [unselect, setUnselect] = useState(false);
 
@@ -17,7 +17,13 @@ export default function SwitchStat({ title, send, options, id }) {
 	useEffect(() => {
 		console.log('very cool clear detected');
 		setValue('none');
-		send({ id: id, value: options[0] });
+		console.log(id);
+		console.log(defValue)
+		if(defValue === undefined){
+		send({ id: id, value: options[0] });}//options[0]
+		else{
+			send({ id: id, value: defValue});
+		}
 	}, [clearCount]);
 	return (
 		<div style={overallStyle}>
