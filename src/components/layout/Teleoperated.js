@@ -223,7 +223,7 @@ export class Teleloperated extends Component {
 								options={[0, 25, 50, 75, 100]}
 								send={this.sendData}
 								id={11}
-								entryName={'intakeFrom'}//CS = Charging Station
+								entryName={'defenseQuantity'}//CS = Charging Station
 							/>
 						</Col>
             <Col>
@@ -232,7 +232,7 @@ export class Teleloperated extends Component {
                 options={[0,1, 2, 3, 4, 5]}
                 send={this.sendData}
                 id={12}
-                entryName={"defense"}
+                entryName={"defenseQuality"}
               />
             </Col>
           </Row>
@@ -262,9 +262,10 @@ export class Teleloperated extends Component {
             <Col>
             <SwitchStat
                 title="Additional Robots"
-                options={[0,1,2,3]}
+                options={[0,1,2]}
                 send={this.sendData}
                 id={14}
+                entryName={'additionalRobots'}
             ></SwitchStat>
             </Col>
           </Row>
