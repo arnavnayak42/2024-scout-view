@@ -31,9 +31,22 @@ export class Export extends Component {//JSON.stringify(this.props.data)
 		}
 		console.log("endgame");
 		for (let i = 0; i < data.endgame.length; i++) {
+			if(i>=3){
+				if(data.endgame[i].value === 'true'){
+					newData.push(true);
+				}
+				else if(data.endgame[i].value === 'false'){
+					newData.push(false);
+				}
+				else{
+					newData.push(data.endgame[i].value);
+				}
+			}
+			else{
 			newData.push(data.endgame[i].value);
 			console.log("id:" + i + ", value: " + data.endgame[i].value + ", actual index: " + x);
 			x++;
+			}
 		}
 		newData.push(this.props.data.scout);
 		console.log(newData);

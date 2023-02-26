@@ -1,10 +1,10 @@
 import React, { Component, useState, useContext, useEffect } from 'react';
-import ButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import Button from 'react-bootstrap/Button';
 import { ClearContext } from '../App';
 
-export default function SwitchStat({ title, send, options, id, defValue}) {
+export default function OptionalBoolStat({ title, send, id, defValue}) {
 	const [value, setValue] = useState('none');
 	const [unselect, setUnselect] = useState(false);
 
@@ -19,11 +19,11 @@ export default function SwitchStat({ title, send, options, id, defValue}) {
 		setValue('none');
 		console.log(id);
 		console.log(defValue)
-		if(defValue === undefined){
-		send({ id: id, value: options[0] });}//options[0]
-		else{
+		// if(defValue === undefined){
+		// send({ id: id, value: options[0] });}//options[0]
+		// else{
 			send({ id: id, value: defValue});
-		}
+		// }
 	}, [clearCount]);
 	return (
 		<div style={overallStyle}>
@@ -34,20 +34,30 @@ export default function SwitchStat({ title, send, options, id, defValue}) {
 				className='thin'
 				onChange={changeHandle}
 			> */}
-			{options.map((option) => (
-				<Button
+			<Button
 					type='radio'
-					value={option}
+					value={true}
 					variant='danger'
 					size='lg'
 					style={buttonStyle}
 					checked={false}
 					onClick={changeHandle}
-					active={value == option}
+					active={value == 'true'}
 				>
-					{option}
+					Yes
 				</Button>
-			))}
+                <Button
+					type='radio'
+					value={false}
+					variant='danger'
+					size='lg'
+					style={buttonStyle}
+					checked={false}
+					onClick={changeHandle}
+					active={value == 'false'}
+				>
+					No
+				</Button>
 			{/* </ButtonGroup> */}
 		</div>
 	);

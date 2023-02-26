@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import { Button } from 'react-bootstrap';
+import OptionalBoolStat from "../OptionalBoolStat";
 export class PreMadeComments extends Component{
     state = {
         data: [
@@ -61,32 +62,36 @@ export class PreMadeComments extends Component{
       options = {["Slow", "Fast"]}
       send={this.sendData}
       id = {0}
+      defValue={"-1"}
       entryName={"slowOrfast"}
     ></SwitchStat>
     </Col>
     <Col>
-    <BooleanStat
+    <OptionalBoolStat
       title="Moved Pieces Between Nodes"
       send={this.sendData}
       id = {1}
+      defValue={"-1"}
       entryName={"movedPiecesBetweenNodes"}
-      ></BooleanStat>
+      ></OptionalBoolStat>
     </Col>
     <Col>
-    <BooleanStat
+    <OptionalBoolStat
       title="Dropped Pieces Between Nodes"
       send={this.sendData}      
       id = {2}
+      defValue={"-1"}
       entryName={"droppedPiecesBetweenNodes"}
-    ></BooleanStat>
+    ></OptionalBoolStat>
     </Col>
     <Col>
-    <BooleanStat
+    <OptionalBoolStat
       title="Long Time To Intake"
       send={this.sendData}
       id = {3}
+      defValue={"-1"}
       entryName={"longTimeToIntake"}
-    ></BooleanStat>
+    ></OptionalBoolStat>
     </Col>
     </Row>
     <Row>
