@@ -273,8 +273,8 @@ export class Teleloperated extends Component {
 							<div style={topSpace}></div>
 						</Col>
 					</Row>
-          <div style={topSpace}></div>  
-          <div style={topSpace}></div>
+          {/* <div style={topSpace}></div>   */}
+          {/* <div style={topSpace}></div> */}
           <Row>
             <Col>
               <div style={topSpace}></div>
