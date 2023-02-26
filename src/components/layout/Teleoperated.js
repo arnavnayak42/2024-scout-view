@@ -11,7 +11,7 @@ import { Button } from 'react-bootstrap';
 import { PreMadeComments } from './PreMadeComments';
 
 
-let endgameDataStart = 9;
+let endgameDataStart = 13;
 export class Teleloperated extends Component {
   state = {
     data: [
@@ -55,7 +55,6 @@ export class Teleloperated extends Component {
         id: 9,//Intake From Shelf 
         value: 0,
       },
-      //endgame
       {
         id: 10,//Intake From Substation        
         value: false,
@@ -68,6 +67,7 @@ export class Teleloperated extends Component {
         id: 12, //Defense Quality 
         value: "-1"
       },
+      //endgame
       {
         id: 13,//Charging Station
         value: "-1"
@@ -94,7 +94,7 @@ export class Teleloperated extends Component {
   };
   sendInput = (data) => {
     let currentState = this.state.data;
-    currentState[11].value = data.target.value; // hard coded for now until text fields are a component
+    currentState[15].value = data.target.value; // hard coded for now until text fields are a component
     this.setState({ currentState }, () => {
       let teleopData = currentState.slice(0, endgameDataStart);
       this.props.sendTeleop(teleopData);
@@ -262,7 +262,7 @@ export class Teleloperated extends Component {
             <Col>
             <SwitchStat
                 title="Additional Robots"
-                options={[1,2,3]}
+                options={[0,1,2,3]}
                 send={this.sendData}
                 id={14}
             ></SwitchStat>
