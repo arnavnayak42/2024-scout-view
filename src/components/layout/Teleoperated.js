@@ -49,7 +49,7 @@ export class Teleloperated extends Component {
       },
       {
         id: 8,//Intake From Floor 
-        value: "-1",
+        value: 0,
       },
       {
         id: 9,//Intake From Shelf 
@@ -57,7 +57,7 @@ export class Teleloperated extends Component {
       },
       {
         id: 10,//Intake From Substation        
-        value: false,
+        value: 0,
       },
       {
         id: 11,//Defense Quantity 
