@@ -219,7 +219,7 @@ export class Teleloperated extends Component {
           <Row>
           <Col>
 							<SwitchStat
-								title='Defence Quantity(%)'
+								title='Defense Quantity(%)'
 								options={[0, 25, 50, 75, 100]}
 								send={this.sendData}
 								id={11}

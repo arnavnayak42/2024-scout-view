@@ -111,7 +111,7 @@ export class Autonomous extends Component {
 						</Col>
 						<Col>
 							<BooleanStat
-								title='Left Community?'
+								title='Leave Community?'
 								send={this.sendData}
 								id={1}
 								entryName={'leftCommunity'}//change this to leftTarmac //was crossTarmac
