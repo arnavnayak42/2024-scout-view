@@ -25,7 +25,8 @@ export class Comment extends Component {//style={size}
             return (
                 <><div style={topMargin}/>
                 <div style={size}>
-                    <p>Comment</p>
+                    <h4>Comment</h4>
+                    <p>i.e if they can intake from the grid, did they score many links, etc. etc.</p>
                     <InputGroup onChange={this.props.sendComment} type="text">
                         <FormControl />
                     </InputGroup>
