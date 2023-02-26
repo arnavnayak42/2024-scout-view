@@ -8,6 +8,9 @@ import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import { Button } from 'react-bootstrap';
+import { PreMadeComments } from './PreMadeComments';
+
+
 let endgameDataStart = 13;
 export class Teleloperated extends Component {
   state = {
@@ -52,7 +55,6 @@ export class Teleloperated extends Component {
         id: 9,//Intake From Shelf 
         value: 0,
       },
-      //endgame
       {
         id: 10,//Intake From Substation        
         value: 0,
@@ -65,6 +67,7 @@ export class Teleloperated extends Component {
         id: 12, //Defense Quality 
         value: "-1"
       },
+      //endgame
       {
         id: 13,//Charging Station
         value: "-1"
@@ -76,22 +79,6 @@ export class Teleloperated extends Component {
       {
         id:15, //Time Left
         value: "-1"
-      },
-      {
-        id:16, //Slow or Fast
-        value:"-1"
-      },
-      {
-        id:17,//Moved Pieces Between Nodes
-        value: false
-      },
-      {
-        id:18,//Dropped Pieces Between Nodes
-        value: false
-      },
-      {
-        id:19,//Long Time to Intake 
-        value: false
       }
     ],
   };
@@ -287,7 +274,7 @@ export class Teleloperated extends Component {
 							<div style={topSpace}></div>
 						</Col>
 					</Row>
-          <div style={topSpace}></div>  
+          {/* <div style={topSpace}></div>   */}
           {/* <div style={topSpace}></div> */}
           <Row>
             <Col>
@@ -307,46 +294,6 @@ export class Teleloperated extends Component {
               </InputGroup>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <div style={topSpace}></div>
-            </Col>
-          </Row>
-          <Row>
-          <Col>
-          <SwitchStat
-            title="Slow or Fast"
-            options = {["Slow", "Fast"]}
-            send={this.sendData}
-            id = {16}
-            entryName={"slowOrfast"}
-          ></SwitchStat>
-          </Col>
-          <Col>
-          <BooleanStat
-            title="Moved Pieces Between Nodes"
-            send={this.sendData}
-            id = {17}
-            entryName={"movedPiecesBetweenNodes"}
-            ></BooleanStat>
-          </Col>
-          <Col>
-          <BooleanStat
-            title="Dropped Pieces Between Nodes"
-            send={this.sendData}
-            id = {18}
-            entryName={"droppedPiecesBetweenNodes"}
-          ></BooleanStat>
-          </Col>
-          <Col>
-          <BooleanStat
-            title="Long Time To Intake"
-            send={this.sendData}
-            id = {19}
-            entryName={"longTimeToIntake"}
-          ></BooleanStat>
-          </Col>
-          </Row>
 
           <Row>
             <Col>
@@ -357,6 +304,8 @@ export class Teleloperated extends Component {
       </div>
     );
   }
+
+
 }
 const headerStyle = {
 	textAlign: 'center',
