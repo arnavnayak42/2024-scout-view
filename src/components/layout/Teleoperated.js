@@ -209,7 +209,7 @@ export class Teleloperated extends Component {
           </Col>
           <Col>
           <PlusMinusStat
-            title = "Intake From Substation"
+            title = "Intake From Chute"
             send = {this.sendData}
             id={10}
             entryName={'intakeFromSubstation'}
