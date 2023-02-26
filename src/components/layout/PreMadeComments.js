@@ -34,6 +34,7 @@ export class PreMadeComments extends Component{
         let currentState = this.state.data;
         console.log("original state");
         console.log(currentState);
+        console.log(data.id);
         currentState[data.id] = data;
         console.log("current state in premade comments");
         console.log(currentState);
@@ -88,6 +89,16 @@ export class PreMadeComments extends Component{
     ></BooleanStat>
     </Col>
     </Row>
+    <Row>
+            <Col>
+              <div style={topSpace}></div>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <div style={topSpace}></div>
+            </Col>
+          </Row>
     </Container>
     </div>
     );    

@@ -51,10 +51,41 @@ class DataSet {
 	setTeleopData = (data) => {
 		this.data.teleop = data;
 	};
-	setEndgameData = (data) => {
-		this.data.endgame = data;
-		console.log("endgame data app.js");
-		console.log(this.data.endgame);
+	setAllEndgameData = (data) => {
+		let premade = ["-1", false, false, false];
+		let endgame = ["-1", "-1", "-1"];
+		let totEndgame = [];
+		let origEndgame = this.data.endgame;
+		if(data.length == 4){
+			console.log("changing premade");
+			premade = this.setPreMadeComments(data);
+			endgame = origEndgame.slice(0,3);
+		}
+		else{
+			console.log("changing the other data");
+			premade = origEndgame.slice(3,8);
+			endgame = data;
+		}
+		totEndgame = endgame.concat(premade);
+		console.log("totEndgame");
+		console.log(totEndgame);
+		this.data.endgame = totEndgame;
+	}
+	// setEndgameData = (data) => {
+	// 	this.data.endgame = data;
+	// 	// this.data.endgame.push(data);
+	// 	console.log("endgame data app.js");
+	// 	console.log(this.data.endgame);
+	// };
+	setPreMadeComments = (data) => {
+		let edited = [];
+		for (let i = 0; i < data.length; i++){
+			edited.push({id: data[i].id + 3, value: data[i].value});
+			// data[i].id += 3
+		}
+		console.log("edited premade data");
+		console.log(edited);
+		return edited;
 	};
 	setScout = (data) => {
 		this.scout = data;
@@ -85,8 +116,8 @@ class App extends Component {
 	};
 
 	updatePreMadeComments = (data) => {
-		let currentData = this.state.data
-		currentData.setPreMadeComments(data); 
+		let currentData = this.state.dataset;
+		currentData.setAllEndgameData(data); 
 		let tab = this.state.activeTab;
 		this.setState({
 			activeTab: tab,
@@ -106,8 +137,10 @@ class App extends Component {
 		});
 	};
 	updateEndgameData = (data) => {
+		console.log("data passed into updateEndgameData");
+		console.log(data);
 		let currentData = this.state.dataset;
-		currentData.setEndgameData(data);
+		currentData.setAllEndgameData(data);
 		let tab = this.state.activeTab;
 		this.setState({
 			activeTab: tab,
@@ -211,15 +244,16 @@ class App extends Component {
 						reset={this.resetLmao}
 						// style={{ display: 'none' }}
 					/>
+					<h3 style={centerText}>The following questions are OPTIONAL fields</h3>
+					<h4 style={centerText}>However, please still fill out the comments box</h4>
 					<PreMadeComments
 						style={{ display: 'none' }}
-						sendPreMade = {this.updateEndgameData}
+						sendPreMade = {this.updatePreMadeComments}
 					/>
 					<Comment
 						style={{ display: this.state.activeTab == 1 ? 'none' : 'none' }}
 						sendComment={this.updateComment}
 					></Comment>
-
 					<Button
 						variant='success'
 						size='lg'
@@ -263,6 +297,9 @@ class App extends Component {
 		return this.state.activeTab;
 	  }
 }
+const centerText = {
+	textAlign: 'center'
+};
 const space = {
 	paddingTop: '25vh',
 	width: '100%',
@@ -274,7 +311,7 @@ const clearButton = {
 	width: window.innerWidth,
 	height: window.innerHeight * 0.2,
 	// marginBottom: '5%',
-	marginTop: '20%',
+	marginTop: '15%',
 };
 const fullscreen = {
 	height: '100%',
