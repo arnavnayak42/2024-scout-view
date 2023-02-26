@@ -8,7 +8,10 @@ import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import { Button } from 'react-bootstrap';
-let endgameDataStart = 13;
+import { PreMadeComments } from './PreMadeComments';
+
+
+let endgameDataStart = 9;
 export class Teleloperated extends Component {
   state = {
     data: [
@@ -46,7 +49,7 @@ export class Teleloperated extends Component {
       },
       {
         id: 8,//Intake From Floor 
-        value: 0,
+        value: "-1",
       },
       {
         id: 9,//Intake From Shelf 
@@ -55,7 +58,7 @@ export class Teleloperated extends Component {
       //endgame
       {
         id: 10,//Intake From Substation        
-        value: 0,
+        value: false,
       },
       {
         id: 11,//Defense Quantity 
@@ -76,22 +79,6 @@ export class Teleloperated extends Component {
       {
         id:15, //Time Left
         value: "-1"
-      },
-      {
-        id:16, //Slow or Fast
-        value:"-1"
-      },
-      {
-        id:17,//Moved Pieces Between Nodes
-        value: false
-      },
-      {
-        id:18,//Dropped Pieces Between Nodes
-        value: false
-      },
-      {
-        id:19,//Long Time to Intake 
-        value: false
       }
     ],
   };
@@ -107,7 +94,7 @@ export class Teleloperated extends Component {
   };
   sendInput = (data) => {
     let currentState = this.state.data;
-    currentState[15].value = data.target.value; // hard coded for now until text fields are a component
+    currentState[11].value = data.target.value; // hard coded for now until text fields are a component
     this.setState({ currentState }, () => {
       let teleopData = currentState.slice(0, endgameDataStart);
       this.props.sendTeleop(teleopData);
@@ -236,7 +223,7 @@ export class Teleloperated extends Component {
 								options={[0, 25, 50, 75, 100]}
 								send={this.sendData}
 								id={11}
-								entryName={'defenseQuantity'}//CS = Charging Station
+								entryName={'intakeFrom'}//CS = Charging Station
 							/>
 						</Col>
             <Col>
@@ -245,7 +232,7 @@ export class Teleloperated extends Component {
                 options={[0,1, 2, 3, 4, 5]}
                 send={this.sendData}
                 id={12}
-                entryName={"defenseQuality"}
+                entryName={"defense"}
               />
             </Col>
           </Row>
@@ -275,10 +262,9 @@ export class Teleloperated extends Component {
             <Col>
             <SwitchStat
                 title="Additional Robots"
-                options={[0,1,2]}
+                options={[1,2,3]}
                 send={this.sendData}
                 id={14}
-                entryName={'additionalRobots'}
             ></SwitchStat>
             </Col>
           </Row>
@@ -288,7 +274,7 @@ export class Teleloperated extends Component {
 						</Col>
 					</Row>
           <div style={topSpace}></div>  
-          {/* <div style={topSpace}></div> */}
+          <div style={topSpace}></div>
           <Row>
             <Col>
               <div style={topSpace}></div>
@@ -307,46 +293,6 @@ export class Teleloperated extends Component {
               </InputGroup>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <div style={topSpace}></div>
-            </Col>
-          </Row>
-          <Row>
-          <Col>
-          <SwitchStat
-            title="Slow or Fast"
-            options = {["Slow", "Fast"]}
-            send={this.sendData}
-            id = {16}
-            entryName={"slowOrfast"}
-          ></SwitchStat>
-          </Col>
-          <Col>
-          <BooleanStat
-            title="Moved Pieces Between Nodes"
-            send={this.sendData}
-            id = {17}
-            entryName={"movedPiecesBetweenNodes"}
-            ></BooleanStat>
-          </Col>
-          <Col>
-          <BooleanStat
-            title="Dropped Pieces Between Nodes"
-            send={this.sendData}
-            id = {18}
-            entryName={"droppedPiecesBetweenNodes"}
-          ></BooleanStat>
-          </Col>
-          <Col>
-          <BooleanStat
-            title="Long Time To Intake"
-            send={this.sendData}
-            id = {19}
-            entryName={"longTimeToIntake"}
-          ></BooleanStat>
-          </Col>
-          </Row>
 
           <Row>
             <Col>
@@ -357,6 +303,8 @@ export class Teleloperated extends Component {
       </div>
     );
   }
+
+
 }
 const headerStyle = {
 	textAlign: 'center',

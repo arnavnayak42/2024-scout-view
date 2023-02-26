@@ -12,6 +12,7 @@ import BooleanStat from './components/BooleanStat';
 import PlusMinusStat from './components/PlusMinusStat';
 import SwitchStat from './components/SwitchStat';
 import Button from 'react-bootstrap/Button';
+import { PreMadeComments } from './components/layout/PreMadeComments';
 
 export const ClearContext = React.createContext();
 const beforeUnloadListener = (event) => {
@@ -43,11 +44,17 @@ class DataSet {
 	setAutoData = (data) => {
 		this.data.auto = data;
 	};
+	setPreMadeComments = (data) => {
+		this.data.teleop = data;
+	}
+
 	setTeleopData = (data) => {
 		this.data.teleop = data;
 	};
 	setEndgameData = (data) => {
 		this.data.endgame = data;
+		console.log("endgame data app.js");
+		console.log(this.data.endgame);
 	};
 	setScout = (data) => {
 		this.scout = data;
@@ -76,6 +83,18 @@ class App extends Component {
 			clearCount: this.state.clearCount,
 		});
 	};
+
+	updatePreMadeComments = (data) => {
+		let currentData = this.state.data
+		currentData.setPreMadeComments(data); 
+		let tab = this.state.activeTab;
+		this.setState({
+			activeTab: tab,
+			dataset: currentData,
+			clearCount: this.state.clearCount
+		});
+	};
+
 	updateTeleopData = (data) => {
 		let currentData = this.state.dataset;
 		currentData.setTeleopData(data);
@@ -192,6 +211,10 @@ class App extends Component {
 						reset={this.resetLmao}
 						// style={{ display: 'none' }}
 					/>
+					<PreMadeComments
+						style={{ display: 'none' }}
+						sendPreMade = {this.updateEndgameData}
+					/>
 					<Comment
 						style={{ display: this.state.activeTab == 1 ? 'none' : 'none' }}
 						sendComment={this.updateComment}
@@ -234,6 +257,8 @@ class App extends Component {
 			clearCount: this.state.clearCount,
 		});
 	};
+	gotoComment
+
 	static getTab = () => {
 		return this.state.activeTab;
 	  }
