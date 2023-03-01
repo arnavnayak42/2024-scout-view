@@ -207,6 +207,8 @@ class App extends Component {
 			clearCount: this.state.clearCount + 1,
 		});
 		//clearing all of the text boxes
+		console.log('bye bye text boxes');
+		console.log(document.getElementsByClassName('textField'));
 		document.getElementsByClassName('textField')[0].value = '';
 		document.getElementsByClassName('textField')[1].value = '';
 		document.getElementsByClassName('textField')[2].value = '';
