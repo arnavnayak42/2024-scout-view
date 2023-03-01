@@ -44,9 +44,9 @@ class DataSet {
 	setAutoData = (data) => {
 		this.data.auto = data;
 	};
-	setPreMadeComments = (data) => {
-		this.data.teleop = data;
-	}
+	// setPremadeComments = (data) => {
+	// 	this.data.teleop = data;
+	// }
 
 	setTeleopData = (data) => {
 		this.data.teleop = data;
@@ -206,6 +206,12 @@ class App extends Component {
 			dataset: new DataSet(),
 			clearCount: this.state.clearCount + 1,
 		});
+		//clearing all of the text boxes
+		document.getElementsByClassName('textField')[0].value = '';
+		document.getElementsByClassName('textField')[1].value = '';
+		document.getElementsByClassName('textField')[2].value = '';
+		document.getElementsByClassName('textField')[3].value = '';
+		document.getElementsByClassName('textField')[4].value = '';
 		console.log('clears: ' + this.state.clearCount);
 	};
 	render() {
@@ -291,7 +297,7 @@ class App extends Component {
 			clearCount: this.state.clearCount,
 		});
 	};
-	gotoComment
+	// gotoComment
 
 	static getTab = () => {
 		return this.state.activeTab;
