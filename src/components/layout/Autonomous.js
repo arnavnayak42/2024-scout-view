@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
+import OptionalBoolStat from '../OptionalBoolStat';
 
 export class Autonomous extends Component {
 	state = {
@@ -110,11 +111,11 @@ export class Autonomous extends Component {
 							/>
 						</Col>
 						<Col>
-							<BooleanStat
+							<OptionalBoolStat
 								title='Leave Community?'
 								send={this.sendData}
 								id={1}
-								entryName={'leftCommunity'}//change this to leftTarmac //was crossTarmac
+								defValue={'-1'}//change this to leftTarmac //was crossTarmac
 							/>
 						</Col>
 					</Row>

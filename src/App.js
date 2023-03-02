@@ -140,6 +140,8 @@ class App extends Component {
 		console.log("data passed into updateEndgameData");
 		console.log(data);
 		let currentData = this.state.dataset;
+		console.log("the current state during updateEndgameData");
+		console.log(currentData);
 		currentData.setAllEndgameData(data);
 		let tab = this.state.activeTab;
 		this.setState({
@@ -200,13 +202,9 @@ class App extends Component {
 		console.log(this.state.clearCount);
 		let currentData = this.state.dataset;
 		currentData.reset();
+		console.log("resetted data");
+		console.log(currentData);
 		let tab = this.state.activeTab;
-		this.setState({
-			activeTab: tab,
-			dataset: new DataSet(),
-			clearCount: this.state.clearCount + 1,
-		});
-		//clearing all of the text boxes
 		console.log('bye bye text boxes');
 		console.log(document.getElementsByClassName('textField'));
 		document.getElementsByClassName('textField')[0].value = '';
@@ -214,7 +212,15 @@ class App extends Component {
 		document.getElementsByClassName('textField')[2].value = '';
 		document.getElementsByClassName('textField')[3].value = '';
 		document.getElementsByClassName('textField')[4].value = '';
+		this.setState({
+			activeTab: tab,
+			dataset: new DataSet(),
+			clearCount: this.state.clearCount + 1,
+		});
+		//clearing all of the text boxes
 		console.log('clears: ' + this.state.clearCount);
+		console.log("resetted state");
+		console.log(this.state);
 	};
 	render() {
 		return (

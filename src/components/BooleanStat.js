@@ -95,8 +95,8 @@ export class BooleanStat extends Component {
             <div style = {overallStyle}>
             <h6>{this.props.title}</h6>
                 <ToggleButtonGroup type = 'radio' name = "hi" onChange = {this.changeHandle}>
-                    <ToggleButton type = 'radio' value = {true} variant="danger" size = "lg" style = {buttonStyle}>Yes</ToggleButton>
-                    <ToggleButton type = 'radio' value = {false} variant="danger" size = "lg" style = {buttonStyle}>No</ToggleButton>
+                    <ToggleButton type = 'radio' value = {true} variant="danger" size = "lg" style = {buttonStyle} active={this.state.value == true}>Yes</ToggleButton>
+                    <ToggleButton type = 'radio' value = {false} variant="danger" size = "lg" style = {buttonStyle} active={this.state.value == false}>No</ToggleButton>
                 </ToggleButtonGroup>    
             </div>
         )
