@@ -52,7 +52,8 @@ export class Teleloperated extends Component {
         value: 0,
       },
       {
-        id: 9 //Intake From Floor Outside Community
+        id: 9, //Intake From Floor Outside Community
+        value: 0, 
       },
       {
         id: 10,//Intake From Shelf 
@@ -292,24 +293,7 @@ export class Teleloperated extends Component {
               <div style={topSpace}></div>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <p> Time Left </p>
-              <div>
-            <FormControl className='timeLeft'>
-              <InputGroup
-                style={halfWidth}
-                id={16}
-                entryName={"timeleft"}
-                onChange={this.sendInput}
-              >
-              </InputGroup>
-              </FormControl>
-                <FormControl className='textField'/>
 
-              </div>
-            </Col>
-          </Row>
 
           <Row>
             <Col>

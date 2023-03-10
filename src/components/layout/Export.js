@@ -60,9 +60,9 @@ export class Export extends Component {//JSON.stringify(this.props.data)
 					<div style={topSpace}></div>{' '}
 				</Row>
 				<Container fluid style={middle}>
-					<Row>
-						{/**<QRCode value={jack} style={big} renderAs="svg"/> */}<QRCode value={JSON.stringify(newData)} style={big} renderAs="svg"/>
-					</Row>
+				<Row>
+					{/**<QRCode value={jack} style={big} renderAs="svg"/> */}<QRCode value={JSON.stringify(newData)} style={big} renderAs="svg"/>
+				</Row>
 					<Row style={fs}>
 						{' '}
 						<div style={topSpace}></div>{' '}

@@ -28,6 +28,14 @@ export class PreMadeComments extends Component{
               {
                 id:3,//Long Time to Intake 
                 value: false
+              },
+              {
+                id:4,
+                value: false
+              },
+              {
+                id:5,
+                value: false
               }
         ]
     }
@@ -77,13 +85,16 @@ export class PreMadeComments extends Component{
     </Col>
     <Col>
     <OptionalBoolStat
-      title="Dropped Pieces Between Nodes"
+      title="Dropped Pieces While Cycling"
       send={this.sendData}      
       id = {2}
       defValue={"-1"}
       entryName={"droppedPiecesBetweenNodes"}
     ></OptionalBoolStat>
     </Col>
+      
+    
+
     <Col>
     <OptionalBoolStat
       title="Long Time To Intake"
@@ -99,6 +110,27 @@ export class PreMadeComments extends Component{
               <div style={topSpace}></div>
             </Col>
           </Row>
+    <Row>
+      <Col>
+      <OptionalBoolStat
+        title={"Robot dropped pieces when hit"}
+        send={this.sendData}
+        id = {4}
+        defValue={"-1"}
+        entryName={"robotDropped"}
+      ></OptionalBoolStat>
+      </Col>
+      <Col>
+      <OptionalBoolStat
+        title={"Did They Triple Climb"}
+        send={this.sendData}
+        id = {5}
+        defValue={"-1"}
+        entryName={"tripleClimb"}
+      ></OptionalBoolStat>
+      </Col>
+
+    </Row>
           <Row>
             <Col>
               <div style={topSpace}></div>
