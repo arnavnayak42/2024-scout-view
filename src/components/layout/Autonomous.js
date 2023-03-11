@@ -143,7 +143,7 @@ export class Autonomous extends Component {
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Cones Low'
+								title='Cones Low (not counting those nudged in/fell in)'
 								send={this.sendData}
 								id={4}
 								entryName={'conesLowAuto'}
@@ -151,7 +151,7 @@ export class Autonomous extends Component {
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Cones Missed (not counting those nudged in/fell in)'
+								title='Cones Missed (while placing high/mid)'
 								send={this.sendData}
 								id={5}
 								entryName={'conesMissedAuto'}
@@ -182,7 +182,7 @@ export class Autonomous extends Component {
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Cubes Low'
+								title='Cubes Low (not counting those nudged in/fell in)'
 								send={this.sendData}
 								id={8}
 								entryName={'cubesLowAuto'}
@@ -190,7 +190,7 @@ export class Autonomous extends Component {
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Cubes Missed (not counting those nudged in/fell in)'
+								title='Cubes Missed (while placing high/mid)'
 								send={this.sendData}
 								id={9}
 								entryName={'cubesMissedAuto'}
