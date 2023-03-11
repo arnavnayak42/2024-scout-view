@@ -11,7 +11,7 @@ import { Button } from 'react-bootstrap';
 import { PreMadeComments } from './PreMadeComments';
 
 
-let endgameDataStart = 13;
+let endgameDataStart = 14;
 export class Teleloperated extends Component {
   state = {
     data: [
@@ -80,10 +80,10 @@ export class Teleloperated extends Component {
         id: 15, //Additional Robots  
         value:"-1"
       },
-      {
-        id:16, //Time Left
-        value: "-1"
-      }
+      // {
+      //   id:16, //Time Left
+      //   value: "-1"
+      // }
     ],
   };
   sendData = (data) => {
@@ -143,7 +143,7 @@ export class Teleloperated extends Component {
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Cones Missed'
+								title='Cones Missed (not counting those nudged in/fell in)'
 								send={this.sendData}
 								id={3}
 								entryName={'conesMissedTeleop'}
@@ -182,7 +182,7 @@ export class Teleloperated extends Component {
 						</Col>
             <Col>
 							<PlusMinusStat
-								title='Cubes Missed'
+								title='Cubes Missed (not counting those nudged in/fell in)'
 								send={this.sendData}
 								id={7}
 								entryName={'cubesMissedTeleop'}
@@ -281,11 +281,11 @@ export class Teleloperated extends Component {
             ></SwitchStat>
             </Col>
           </Row>
-          <Row>
+          {/* <Row>
 						<Col>
 							<div style={topSpace}></div>
 						</Col>
-					</Row>
+					</Row> */}
           {/* <div style={topSpace}></div>   */}
           {/* <div style={topSpace}></div> */}
           <Row>

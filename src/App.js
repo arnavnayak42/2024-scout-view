@@ -52,18 +52,18 @@ class DataSet {
 		this.data.teleop = data;
 	};
 	setAllEndgameData = (data) => {
-		let premade = ["-1", false, false, false];
-		let endgame = ["-1", "-1", "-1"];
+		let premade = ["-1", false, false, false, false, false];//js a default array for premade comments
+		let endgame = ["-1", "-1"];//js a default array for the data from the endgame
 		let totEndgame = [];
 		let origEndgame = this.data.endgame;
-		if(data.length == 4){
+		if(data.length == 6){
 			console.log("changing premade");
 			premade = this.setPreMadeComments(data);
-			endgame = origEndgame.slice(0,3);
+			endgame = origEndgame.slice(0,2);
 		}
 		else{
 			console.log("changing the other data");
-			premade = origEndgame.slice(3,8);
+			premade = origEndgame.slice(2,(premade.length + endgame.length));//i don't like this, there should be a better way - jeevan
 			endgame = data;
 		}
 		totEndgame = endgame.concat(premade);
@@ -80,7 +80,7 @@ class DataSet {
 	setPreMadeComments = (data) => {
 		let edited = [];
 		for (let i = 0; i < data.length; i++){
-			edited.push({id: data[i].id + 3, value: data[i].value});
+			edited.push({id: data[i].id + 2, value: data[i].value});//the 2 is based on the # of fields in endgame
 			// data[i].id += 3
 		}
 		console.log("edited premade data");
@@ -211,7 +211,7 @@ class App extends Component {
 		document.getElementsByClassName('textField')[1].value = '';
 		document.getElementsByClassName('textField')[2].value = '';
 		document.getElementsByClassName('textField')[3].value = '';
-		document.getElementsByClassName('textField')[4].value = '';
+		// document.getElementsByClassName('textField')[4].value = '';
 		this.setState({
 			activeTab: tab,
 			dataset: new DataSet(),
@@ -252,6 +252,16 @@ class App extends Component {
 						data={this.dataset}
 						style={{ display: 'none' }}
 					/>
+					{/* <h3 style={centerText}>The following questions are OPTIONAL fields</h3>
+					<h4 style={centerText}>However, please still fill out the comments box</h4>
+					<PreMadeComments
+						style={{ display: 'none' }}
+						sendPreMade = {this.updatePreMadeComments}
+					/>
+					<Comment
+						style={{ display: this.state.activeTab == 1 ? 'none' : 'none' }}
+						sendComment={this.updateComment}
+					></Comment> */}
 					<Export
 						style={fullscreen}
 						data={this.state.dataset}

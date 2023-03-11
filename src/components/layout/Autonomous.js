@@ -151,7 +151,7 @@ export class Autonomous extends Component {
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Cones Missed'
+								title='Cones Missed (not counting those nudged in/fell in)'
 								send={this.sendData}
 								id={5}
 								entryName={'conesMissedAuto'}
@@ -190,7 +190,7 @@ export class Autonomous extends Component {
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Cubes Missed'
+								title='Cubes Missed (not counting those nudged in/fell in)'
 								send={this.sendData}
 								id={9}
 								entryName={'cubesMissedAuto'}

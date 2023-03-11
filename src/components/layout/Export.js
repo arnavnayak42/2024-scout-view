@@ -31,7 +31,7 @@ export class Export extends Component {//JSON.stringify(this.props.data)
 		}
 		console.log("endgame");
 		for (let i = 0; i < data.endgame.length; i++) {
-			if(i>=3){
+			if(i>=2){
 				if(data.endgame[i].value === 'true'){
 					newData.push(true);
 				}
