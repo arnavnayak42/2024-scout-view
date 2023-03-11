@@ -22,11 +22,19 @@ export class PreMadeComments extends Component{
                 value: false
               },
               {
-                id:2,//Drop                                                                                                                                                                                                      ped Pieces Between Nodes
+                id:2,//Dropped when cycling                                                                                                                                                                                                      ped Pieces Between Nodes
                 value: false
               },
               {
                 id:3,//Long Time to Intake 
+                value: false
+              },
+              { //dropped when hit
+                id:4,
+                value: false
+              },
+              {//triple climb
+                id:5,
                 value: false
               }
         ]
@@ -68,7 +76,7 @@ export class PreMadeComments extends Component{
     </Col>
     <Col>
     <OptionalBoolStat
-      title="Moved Pieces Between Nodes"
+      title="Moved Pieces Between Nodes?"
       send={this.sendData}
       id = {1}
       defValue={"-1"}
@@ -77,16 +85,19 @@ export class PreMadeComments extends Component{
     </Col>
     <Col>
     <OptionalBoolStat
-      title="Dropped Pieces Between Nodes"
+      title="Dropped Pieces While Cycling?"
       send={this.sendData}      
       id = {2}
       defValue={"-1"}
       entryName={"droppedPiecesBetweenNodes"}
     ></OptionalBoolStat>
     </Col>
+      
+    
+
     <Col>
     <OptionalBoolStat
-      title="Long Time To Intake"
+      title="Long Time To Intake?"
       send={this.sendData}
       id = {3}
       defValue={"-1"}
@@ -99,6 +110,27 @@ export class PreMadeComments extends Component{
               <div style={topSpace}></div>
             </Col>
           </Row>
+    <Row>
+      <Col>
+      <OptionalBoolStat
+        title={"Dropped When Hit?"}
+        send={this.sendData}
+        id = {4}
+        defValue={"-1"}
+        entryName={"robotDropped"}
+      ></OptionalBoolStat>
+      </Col>
+      <Col>
+      <OptionalBoolStat
+        title={"Triple Climb?"}
+        send={this.sendData}
+        id = {5}
+        defValue={"-1"}
+        entryName={"tripleClimb"}
+      ></OptionalBoolStat>
+      </Col>
+
+    </Row>
           <Row>
             <Col>
               <div style={topSpace}></div>

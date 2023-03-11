@@ -11,7 +11,7 @@ import { Button } from 'react-bootstrap';
 import { PreMadeComments } from './PreMadeComments';
 
 
-let endgameDataStart = 13;
+let endgameDataStart = 14;
 export class Teleloperated extends Component {
   state = {
     data: [
@@ -48,38 +48,42 @@ export class Teleloperated extends Component {
         value: 0,
       },
       {
-        id: 8,//Intake From Floor 
+        id: 8,//Intake From Floor Inside Community
         value: 0,
       },
       {
-        id: 9,//Intake From Shelf 
+        id: 9, //Intake From Floor Outside Community
+        value: 0, 
+      },
+      {
+        id: 10,//Intake From Shelf 
         value: 0,
       },
       {
-        id: 10,//Intake From Substation        
+        id: 11,//Intake From Substation        
         value: 0,
       },
       {
-        id: 11,//Defense Quantity 
+        id: 12,//Defense Quantity 
         value: "-1",
       },
       {
-        id: 12, //Defense Quality 
+        id: 13, //Defense Quality 
         value: "-1"
       },
       //endgame
       {
-        id: 13,//Charging Station
+        id: 14,//Charging Station
         value: "-1"
       },
       {
-        id: 14, //Additional Robots  
+        id: 15, //Additional Robots  
         value:"-1"
       },
-      {
-        id:15, //Time Left
-        value: "-1"
-      }
+      // {
+      //   id:16, //Time Left
+      //   value: "-1"
+      // }
     ],
   };
   sendData = (data) => {
@@ -139,7 +143,7 @@ export class Teleloperated extends Component {
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Cones Missed'
+								title='Cones Missed (not counting those nudged in/fell in)'
 								send={this.sendData}
 								id={3}
 								entryName={'conesMissedTeleop'}
@@ -178,7 +182,7 @@ export class Teleloperated extends Component {
 						</Col>
             <Col>
 							<PlusMinusStat
-								title='Cubes Missed'
+								title='Cubes Missed (not counting those nudged in/fell in)'
 								send={this.sendData}
 								id={7}
 								entryName={'cubesMissedTeleop'}
@@ -193,17 +197,25 @@ export class Teleloperated extends Component {
           <Row>
           <Col>
           <PlusMinusStat
-            title = "Intake From Floor"
+            title = "Intake From Floor (Community)"
             send = {this.sendData}
             id={8}
-            entryName={'intakeFromFloor'}
+            entryName={'intakeFromFloorInside'}
           ></PlusMinusStat>
+          </Col>
+          <Col>
+            <PlusMinusStat
+            title = "Intake From Floor (Outside Community)"
+            send = {this.sendData}
+            id={9}
+            entryName={'intakeFromFloorOutside'}
+            ></PlusMinusStat>
           </Col>
           <Col>
           <PlusMinusStat
             title = "Intake From Shelf"
             send = {this.sendData}
-            id={9}
+            id={10}
             entryName={'intakeFromShelf'}
           ></PlusMinusStat>
           </Col>
@@ -211,7 +223,7 @@ export class Teleloperated extends Component {
           <PlusMinusStat
             title = "Intake From Chute"
             send = {this.sendData}
-            id={10}
+            id={11}
             entryName={'intakeFromSubstation'}
           ></PlusMinusStat>
           </Col>
@@ -222,7 +234,7 @@ export class Teleloperated extends Component {
 								title='Defense Quantity(%)'
 								options={[0, 25, 50, 75, 100]}
 								send={this.sendData}
-								id={11}
+								id={12}
 								entryName={'defenseQuantity'}//CS = Charging Station
 							/>
 						</Col>
@@ -231,7 +243,7 @@ export class Teleloperated extends Component {
                 title="Defense Quality"
                 options={[0,1, 2, 3, 4, 5]}
                 send={this.sendData}
-                id={12}
+                id={13}
                 entryName={"defenseQuality"}
               />
             </Col>
@@ -250,7 +262,7 @@ export class Teleloperated extends Component {
 								title='Charging Station'
 								options={["Docked", "Engaged", "Parked", "None"]}
 								send={this.sendData}
-								id={13}
+								id={14}
 								entryName={'CSTeleop'}//CS = Charging Station
 							/>
 						</Col>
@@ -264,16 +276,16 @@ export class Teleloperated extends Component {
                 title="Additional Robots"
                 options={[0,1,2]}
                 send={this.sendData}
-                id={14}
+                id={15}
                 entryName={'additionalRobots'}
             ></SwitchStat>
             </Col>
           </Row>
-          <Row>
+          {/* <Row>
 						<Col>
 							<div style={topSpace}></div>
 						</Col>
-					</Row>
+					</Row> */}
           {/* <div style={topSpace}></div>   */}
           {/* <div style={topSpace}></div> */}
           <Row>
@@ -281,19 +293,7 @@ export class Teleloperated extends Component {
               <div style={topSpace}></div>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <p> Time Left </p>
-              <InputGroup
-                style={halfWidth}
-                id={15}
-                entryName={"timeleft"}
-                onChange={this.sendInput}
-              >
-                <FormControl className='textField'/>
-              </InputGroup>
-            </Col>
-          </Row>
+
 
           <Row>
             <Col>

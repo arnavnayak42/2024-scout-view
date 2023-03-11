@@ -18,6 +18,23 @@ export class Export extends Component {//JSON.stringify(this.props.data)
 		newData.push(this.props.data.comment);
 		console.log("auton")
 		let x = 3;//this is to see the index of a certain value, starting at 3 b/c the first 3 are match num, team num, and comment
+		//just to check
+	// 	if(typeof data.auto[0].value !== undefined){
+	// 	switch(data.auto[0].value){
+	// 		case 'A':
+	// 			newData.push('1');
+	// 			break;
+	// 		case 'B':
+	// 			newData.push('2');
+	// 			break;
+	// 		case 'C':
+	// 			newData.push('3');
+	// 			break;
+	// 		case 'D':
+	// 			newData.push('4');
+	// 			break;
+	// 	}
+	// }
 		for (let i = 0; i < data.auto.length; i++) {
 			newData.push(data.auto[i].value);
 			console.log("id:" + i + ", value: " + data.auto[i].value + ", actual index: " + x);
@@ -31,7 +48,7 @@ export class Export extends Component {//JSON.stringify(this.props.data)
 		}
 		console.log("endgame");
 		for (let i = 0; i < data.endgame.length; i++) {
-			if(i>=3){
+			if(i>=2){
 				if(data.endgame[i].value === 'true'){
 					newData.push(true);
 				}
@@ -60,9 +77,9 @@ export class Export extends Component {//JSON.stringify(this.props.data)
 					<div style={topSpace}></div>{' '}
 				</Row>
 				<Container fluid style={middle}>
-					<Row>
-						{/**<QRCode value={jack} style={big} renderAs="svg"/> */}<QRCode value={JSON.stringify(newData)} style={big} renderAs="svg"/>
-					</Row>
+				<Row>
+					{/**<QRCode value={jack} style={big} renderAs="svg"/> */}<QRCode value={JSON.stringify(newData)} style={big} renderAs="svg"/>
+				</Row>
 					<Row style={fs}>
 						{' '}
 						<div style={topSpace}></div>{' '}
