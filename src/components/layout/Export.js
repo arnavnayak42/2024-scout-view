@@ -35,7 +35,7 @@ export class Export extends Component {//JSON.stringify(this.props.data)
 	// 			break;
 	// 	}
 	// }
-		for (let i = 1; i < data.auto.length; i++) {
+		for (let i = 0; i < data.auto.length; i++) {
 			newData.push(data.auto[i].value);
 			console.log("id:" + i + ", value: " + data.auto[i].value + ", actual index: " + x);
 			x++;
