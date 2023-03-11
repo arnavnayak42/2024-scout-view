@@ -18,20 +18,23 @@ export class Export extends Component {//JSON.stringify(this.props.data)
 		newData.push(this.props.data.comment);
 		console.log("auton")
 		let x = 3;//this is to see the index of a certain value, starting at 3 b/c the first 3 are match num, team num, and comment
-		switch(data.auto[0].value){
-			case 'A':
-				newData.push('1');
-				break;
-			case 'B':
-				newData.push('2');
-				break;
-			case 'C':
-				newData.push('3');
-				break;
-			case 'D':
-				newData.push('4');
-				break;
-		}
+		//just to check
+	// 	if(typeof data.auto[0].value !== undefined){
+	// 	switch(data.auto[0].value){
+	// 		case 'A':
+	// 			newData.push('1');
+	// 			break;
+	// 		case 'B':
+	// 			newData.push('2');
+	// 			break;
+	// 		case 'C':
+	// 			newData.push('3');
+	// 			break;
+	// 		case 'D':
+	// 			newData.push('4');
+	// 			break;
+	// 	}
+	// }
 		for (let i = 1; i < data.auto.length; i++) {
 			newData.push(data.auto[i].value);
 			console.log("id:" + i + ", value: " + data.auto[i].value + ", actual index: " + x);
