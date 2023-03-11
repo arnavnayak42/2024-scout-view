@@ -82,7 +82,7 @@ export class Autonomous extends Component {
 					</Row>
 					<Row>
 						<Col>
-						<img src={require("../../Assets/key-for-starting-pos.png")} alt="Field diagram" />{/**this may not work globally? +convert this to webp*/}
+						<img src={require("../../Assets/editedStartingPos.png")} alt="Field diagram" />{/**this may not work globally? +convert this to webp*/}
 						</Col>
 						</Row>
 						<Row>
@@ -104,7 +104,7 @@ export class Autonomous extends Component {
 						<Col>
 							<SwitchStat
 								title='Starting Position'
-								options={['1', '2', '3', '4']}
+								options={['A', 'B', 'C', 'D']}
 								send={this.sendData}
 								id={0}
 								entryName={'startPos'}
