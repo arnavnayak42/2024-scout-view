@@ -135,7 +135,7 @@ export class Teleloperated extends Component {
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Cones Low (not counting those nudged in/fell in)'
+								title='Cones Low'
 								send={this.sendData}
 								id={2}
 								entryName={'conesLowTeleop'}
@@ -174,7 +174,7 @@ export class Teleloperated extends Component {
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Cubes Low (not counting those nudged in/fell in)'
+								title='Cubes Low'
 								send={this.sendData}
 								id={6}
 								entryName={'cubesLowTeleop'}
