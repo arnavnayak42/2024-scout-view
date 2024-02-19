@@ -62,7 +62,7 @@ export class Autonomous extends Component {
 					</Row>
 					<Row>
 						<Col>
-						<img src={require("../../Assets/crecendo.webp")} alt="Field diagram" width={"654"} height={"406"} />{/**this may not work globally? +convert this to webp*/}
+						<img src={require("../../Assets/editedCrecendo.webp")} alt="Field diagram" width={"654"} height={"406"} />{/**this may not work globally? +convert this to webp*/}
 						</Col>
 						</Row>
 						<Row>

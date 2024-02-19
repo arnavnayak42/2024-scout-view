@@ -25,14 +25,14 @@ window.addEventListener('beforeunload', beforeUnloadListener, {
 class DataSet {
 	constructor() {
 		this.data = { auto: [], teleop: [], endgame: [] };
-		this.comment = '';
+		// this.comment = '';
 		this.matchNum = 0;
 		this.teamNum = 0;
 		this.scout = '';
 	}
 	reset = () => {
 		this.data = { auto: [], teleop: [], endgame: [] };
-		this.comment = '';
+		// this.comment = '';
 		this.matchNum = 0;
 		this.teamNum = 0;
 		this.scout = '';
@@ -209,8 +209,8 @@ class App extends Component {
 		console.log(document.getElementsByClassName('textField'));
 		document.getElementsByClassName('textField')[0].value = '';
 		document.getElementsByClassName('textField')[1].value = '';
-		document.getElementsByClassName('textField')[2].value = '';
-		document.getElementsByClassName('textField')[3].value = '';
+		// document.getElementsByClassName('textField')[2].value = '';
+		// document.getElementsByClassName('textField')[3].value = '';
 		// document.getElementsByClassName('textField')[4].value = '';
 		this.setState({
 			activeTab: tab,
