@@ -18,45 +18,25 @@ export class Autonomous extends Component {
 				value: '0',
 			},
 			{
-				id: 1,//left community 
+				id: 1,//left wing? 
 				value: false,
 			},
 			{
-				id: 2,//cones high
+				id: 2,//Speaker Scored 
 				value: 0,
 			},
 			{
-				id: 3,//cones mid
+				id: 3,//Speaker Missed 
 				value: 0,
 			},
 			{
-				id: 4, //cones low
+				id: 4, //Amp Scored 
 				value: 0,
 			},
 			{
-				id: 5, //cones missed
+				id: 5, //Amp Missed 
 				value: 0,
 			},
-			{
-				id: 6,//cubes high
-				value: 0,
-			},
-			{
-				id: 7, //cubes mid
-				value: 0,
-			},
-			{
-				id: 8, //cubes low 
-				value: 0,
-			},
-			{
-				id: 9,//cones missed
-				value: 0
-			},
-			{
-				id: 10, //charging station
-				value: "-1",
-			}
 		],
 	};
 	sendData = (data) => {
@@ -82,7 +62,7 @@ export class Autonomous extends Component {
 					</Row>
 					<Row>
 						<Col>
-						<img src={require("../../Assets/editedStartingPos.png")} alt="Field diagram" />{/**this may not work globally? +convert this to webp*/}
+						<img src={require("../../Assets/crecendo.webp")} alt="Field diagram" width={"654"} height={"406"} />{/**this may not work globally? +convert this to webp*/}
 						</Col>
 						</Row>
 						<Row>
@@ -97,7 +77,7 @@ export class Autonomous extends Component {
 								style={halfWidth}
 								onChange={this.props.updateScout}
 								type='text'
-							>
+							> 
 								<FormControl className='textField'></FormControl>
 							</InputGroup>
 						</Col>
@@ -112,7 +92,7 @@ export class Autonomous extends Component {
 						</Col>
 						<Col>
 							<OptionalBoolStat
-								title='Leave Community?'
+								title='Leave Wing?'
 								send={this.sendData}
 								id={1}
 								defValue={'-1'}//change this to leftTarmac //was crossTarmac
@@ -127,21 +107,24 @@ export class Autonomous extends Component {
 					<Row>
 					<Col>
 							<PlusMinusStat
-								title='Cones High'
+								title='Speaker Scored'
 								send={this.sendData}
 								id={2}
-								entryName={'conesHighAuto'}//was lowerScoredAuto
+								entryName={'speakerScored'}//was lowerScoredAuto
 							/>
+						</Col>
+						<Col>
+						<img src={require("../../Assets/SPEAKER.png")} alt="Field diagram" width={"300"} height={"200"} />{/**this may not work globally? +convert this to webp*/}
 						</Col>
 						<Col>
 							<PlusMinusStat
-								title='Cones Mid'
+								title='Speaker Missed'
 								send={this.sendData}
 								id={3}
-								entryName={'conesMidAuto'}//was 
+								entryName={'speakerMissed'}//was 
 							/>
 						</Col>
-						<Col>
+						{/* <Col>
 							<PlusMinusStat
 								title='Cones Low'
 								send={this.sendData}
@@ -156,7 +139,10 @@ export class Autonomous extends Component {
 								id={5}
 								entryName={'conesMissedAuto'}
 							/>
-						</Col>
+						</Col> */}
+						</Row>
+						<Row>
+						<div style={spacer}></div>
 						</Row>
 						<Row>
 						<Col>
@@ -166,21 +152,24 @@ export class Autonomous extends Component {
 					<Row>
 					<Col>
 							<PlusMinusStat
-								title='Cubes High'
+								title='Amp Scored'
 								send={this.sendData}
-								id={6}
-								entryName={'cubesHighAuto'}
-							/>
-						</Col>
-						 <Col>
-							<PlusMinusStat
-								title='Cubes Mid'
-								send={this.sendData}
-								id={7}
-								entryName={'cubesMidAuto'}
+								id={4}
+								entryName={'ampScored'}
 							/>
 						</Col>
 						<Col>
+						<img src={require("../../Assets/AMP.png")} alt="Field diagram" width={"300"} height={"200"}/>{/**this may not work globally? +convert this to webp*/}
+						</Col>
+						 <Col>
+							<PlusMinusStat
+								title='Amp Missed'
+								send={this.sendData}
+								id={5}
+								entryName={'ampMissed'}
+							/>
+						</Col>
+						{/* <Col>
 							<PlusMinusStat
 								title='Cubes Low'
 								send={this.sendData}
@@ -195,22 +184,11 @@ export class Autonomous extends Component {
 								id={9}
 								entryName={'cubesMissedAuto'}
 							/>
-						</Col> 
+						</Col>  */}
 					</Row>
 					<Row>
 						<Col>
 							<div style={topSpace}></div>
-						</Col>
-					</Row>
-					<Row>
-					<Col>
-							<SwitchStat
-								title='Charging Station'
-								options={["Docked", "Engaged", "None"]}
-								send={this.sendData}
-								id={10}
-								entryName={'CSAuto'}//CS = Charging Station
-							/>
 						</Col>
 					</Row>
 					<Row>

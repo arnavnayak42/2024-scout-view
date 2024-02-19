@@ -38,9 +38,9 @@ class DataSet {
 		this.scout = '';
 		console.log('clearing');
 	};
-	setComment = (data) => {
-		this.comment = data;
-	};
+	// setComment = (data) => {
+	// 	this.comment = data;
+	// };
 	setAutoData = (data) => {
 		this.data.auto = data;
 	};
@@ -186,17 +186,17 @@ class App extends Component {
 	updateClearCount = () => {
 		this.setState({ ...this.state, clearCount: this.state.clearCount + 1 });
 	};
-	updateComment = (data) => {
-		let currentData = this.state.dataset;
-		console.log(data.target.value);
-		currentData.setComment(data.target.value);
-		let tab = this.state.activeTab;
-		this.setState({
-			activeTab: tab,
-			dataset: currentData,
-			clearCount: this.state.clearCount,
-		});
-	};
+	// updateComment = (data) => {
+	// 	let currentData = this.state.dataset;
+	// 	console.log(data.target.value);
+	// 	currentData.setComment(data.target.value);
+	// 	let tab = this.state.activeTab;
+	// 	this.setState({
+	// 		activeTab: tab,
+	// 		dataset: currentData,
+	// 		clearCount: this.state.clearCount,
+	// 	});
+	// };
 	resetLmao = () => {
 		console.log('RESETTING');
 		console.log(this.state.clearCount);
@@ -274,10 +274,10 @@ class App extends Component {
 						style={{ display: 'none' }}
 						sendPreMade = {this.updatePreMadeComments}
 					/>
-					<Comment
+					{/* <Comment
 						style={{ display: this.state.activeTab == 1 ? 'none' : 'none' }}
-						sendComment={this.updateComment}
-					></Comment>
+						// sendComment={this.updateComment}
+					></Comment> */}
 					<Button
 						variant='success'
 						size='lg'

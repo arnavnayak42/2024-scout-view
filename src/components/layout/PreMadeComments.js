@@ -66,8 +66,8 @@ export class PreMadeComments extends Component{
     <Row>
     <Col>
     <SwitchStat
-      title="Slow or Fast"
-      options = {["Slow", "Fast"]}
+      title="Traverse Chain?"
+      options = {["Yes", "No"]}
       send={this.sendData}
       id = {0}
       defValue={"-1"}
@@ -76,14 +76,14 @@ export class PreMadeComments extends Component{
     </Col>
     <Col>
     <OptionalBoolStat
-      title="Moved Pieces Between Nodes?"
+      title="2 Robots on Chain?"
       send={this.sendData}
       id = {1}
       defValue={"-1"}
       entryName={"movedPiecesBetweenNodes"}
       ></OptionalBoolStat>
     </Col>
-    <Col>
+    {/* <Col>
     <OptionalBoolStat
       title="Dropped Pieces While Cycling?"
       send={this.sendData}      
@@ -103,7 +103,7 @@ export class PreMadeComments extends Component{
       defValue={"-1"}
       entryName={"longTimeToIntake"}
     ></OptionalBoolStat>
-    </Col>
+    </Col> */}
     </Row>
     <Row>
             <Col>
@@ -120,7 +120,7 @@ export class PreMadeComments extends Component{
         entryName={"robotDropped"}
       ></OptionalBoolStat>
       </Col>
-      <Col>
+      {/* <Col>
       <OptionalBoolStat
         title={"Triple Climb?"}
         send={this.sendData}
@@ -128,7 +128,7 @@ export class PreMadeComments extends Component{
         defValue={"-1"}
         entryName={"tripleClimb"}
       ></OptionalBoolStat>
-      </Col>
+      </Col> */}
 
     </Row>
           <Row>
