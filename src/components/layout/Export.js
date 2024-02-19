@@ -15,7 +15,7 @@ export class Export extends Component {//JSON.stringify(this.props.data)
 		let data = this.props.data.data;
 		newData.push(this.props.data.matchNum);
 		newData.push(this.props.data.teamNum);
-		newData.push(this.props.data.comment);
+		// newData.push(this.props.data.comment);
 		console.log("auton")
 		let x = 3;//this is to see the index of a certain value, starting at 3 b/c the first 3 are match num, team num, and comment
 		//just to check

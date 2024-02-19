@@ -15,7 +15,7 @@ export class GetMatch extends Component {
 				<p>Go to your lead scout to get your matches!</p>
 
 				<p>Team Number</p>
-				<InputGroup style={size} onChange={this.props.sendTeam} type='text' inputMode="numeric">
+				<InputGroup style={size} onChange={this.props.sendTeam} type="number" pattern="[0-9]*" inputmode="numeric">
 					<FormControl
 						value={this.props.teamNum}
 						className='textField'
@@ -23,7 +23,7 @@ export class GetMatch extends Component {
 				</InputGroup>
 				<div style={topSpace}></div>
 				<p>Match Number</p>
-				<InputGroup style={size} onChange={this.props.sendMatch} type='text' inputMode="numeric">
+				<InputGroup style={size} onChange={this.props.sendMatch} type="number" pattern="[0-9]*" inputmode="numeric">
 					<FormControl
 						value={this.props.matchNum}
 						className='textField'
