@@ -127,7 +127,7 @@ export class Teleloperated extends Component {
 							/>
 						</Col>
 						<Col>
-						<img src={require("../../Assets/SPEAKER.png")} alt="Field diagram" width={"300"} height={"200"} />{/**this may not work globally? +convert this to webp*/}
+						<img src={require("../../Assets/SPEAKER.png")} alt="Field diagram" width={"250"} height={"200"} />{/**this may not work globally? +convert this to webp*/}
 						</Col>
 						<Col>
 							<PlusMinusStat
@@ -179,7 +179,7 @@ export class Teleloperated extends Component {
 							/>
 						</Col>
 						<Col>
-						<img src={require("../../Assets/AMP.png")} alt="Field diagram" width={"300"} height={"200"}/>{/**this may not work globally? +convert this to webp*/}
+						<img src={require("../../Assets/AMP.png")} alt="Field diagram" width={"250"} height={"200"}/>{/**this may not work globally? +convert this to webp*/}
 						</Col>
 						 <Col>
 							<PlusMinusStat
@@ -292,7 +292,7 @@ export class Teleloperated extends Component {
             <Col>
             <SwitchStat
                 title="Trap Counter"
-                options={[1,2,3]}
+                options={[0,1,2,3]}
                 send={this.sendData}
                 id={6}
                 entryName={'trapCounter'}

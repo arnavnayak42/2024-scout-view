@@ -268,8 +268,6 @@ class App extends Component {
 						reset={this.resetLmao}
 						// style={{ display: 'none' }}
 					/>
-					<h3 style={centerText}>The following questions are OPTIONAL fields</h3>
-					<h4 style={centerText}>However, please still fill out the comments box</h4>
 					<PreMadeComments
 						style={{ display: 'none' }}
 						sendPreMade = {this.updatePreMadeComments}
