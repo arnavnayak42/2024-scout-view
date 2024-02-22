@@ -62,7 +62,7 @@ export class Autonomous extends Component {
 					</Row>
 					<Row>
 						<Col>
-						<img src={require("../../Assets/editedCrecendo.webp")} alt="Field diagram" width={"654"} height={"406"} />{/**this may not work globally? +convert this to webp*/}
+						<img src={require("../../Assets/theNewField.webp")} alt="Field diagram" width={"770"} height={"406"} />{/**this may not work globally? +convert this to webp*/}
 						</Col>
 						</Row>
 						<Row>
@@ -114,7 +114,7 @@ export class Autonomous extends Component {
 							/>
 						</Col>
 						<Col>
-						<img src={require("../../Assets/SPEAKER.png")} alt="Field diagram" width={"300"} height={"200"} />{/**this may not work globally? +convert this to webp*/}
+						<img src={require("../../Assets/SPEAKER.png")} alt="Field diagram" width={"250"} height={"200"} />{/**this may not work globally? +convert this to webp*/}
 						</Col>
 						<Col>
 							<PlusMinusStat
@@ -159,7 +159,7 @@ export class Autonomous extends Component {
 							/>
 						</Col>
 						<Col>
-						<img src={require("../../Assets/AMP.png")} alt="Field diagram" width={"300"} height={"200"}/>{/**this may not work globally? +convert this to webp*/}
+						<img src={require("../../Assets/AMP.png")} alt="Field diagram" width={"250"} height={"200"}/>{/**this may not work globally? +convert this to webp*/}
 						</Col>
 						 <Col>
 							<PlusMinusStat
