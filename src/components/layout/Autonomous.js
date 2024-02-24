@@ -18,7 +18,7 @@ export class Autonomous extends Component {
 				value: '0',
 			},
 			{
-				id: 1,//left wing? 
+				id: 1,//left start line? 
 				value: false,
 			},
 			{
@@ -92,7 +92,7 @@ export class Autonomous extends Component {
 						</Col>
 						<Col>
 							<OptionalBoolStat
-								title='Leave Wing?'
+								title='Leave Start Line?'
 								send={this.sendData}
 								id={1}
 								defValue={'-1'}//change this to leftTarmac //was crossTarmac
